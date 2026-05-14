@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+dist/
+build/
+*.log
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Coverage
+coverage/
+*.lcov
+
+# TypeScript
+*.tsbuildinfo
+
+# NestJS
+/dist
+/node_modules
+
+# Frontend (if applicable later)
+/.next/
+/out/
