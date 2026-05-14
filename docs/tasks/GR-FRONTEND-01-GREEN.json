@@ -1,0 +1,11 @@
+{
+  "id": "GR-FRONTEND-01-GREEN",
+  "status": "Verified",
+  "description": "Implement AdMob Spike Dummy UI and pass tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-FRONTEND-01-RED"],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test",
+    "expected_exit_code": 0
+  }
+}

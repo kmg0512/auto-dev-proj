@@ -1,0 +1,11 @@
+{
+  "id": "GR-BACKEND-01-RED",
+  "status": "Verified",
+  "description": "Create PrismaService failing unit test.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["H-INIT"],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test",
+    "expected_exit_code": 1
+  }
+}
