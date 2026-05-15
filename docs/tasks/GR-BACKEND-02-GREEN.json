@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-02-GREEN",
+  "status": "Verified",
+  "description": "Implement UsersService to pass tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-02-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test users.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "1c8c96125bb7b07c6dbbd18e11886390b5b07f043c339a473f9574ab82960a42",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 6,
+    "duration_seconds": 18,
+    "coverage": "93.55%"
+  }
+}

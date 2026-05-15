@@ -1,0 +1,11 @@
+{
+  "id": "GR-BACKEND-02-RED",
+  "status": "Verified",
+  "description": "Create UsersService failing unit tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-BACKEND-01-GREEN"],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test users.service.spec.ts",
+    "expected_exit_code": 1
+  }
+}
