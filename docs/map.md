@@ -7,8 +7,16 @@
 | `AppModule` | `backend/src/app.module.ts` | Module | Root module for NestJS |
 | `UsersService` | `backend/src/users/users.service.ts` | Service | User management service |
 | `UsersModule` | `backend/src/users/users.module.ts` | Module | User management module |
+| `AuthService` | `backend/src/auth/auth.service.ts` | Service | Authentication service |
+| `AuthController` | `backend/src/auth/auth.controller.ts` | Controller | Authentication controller |
+| `AuthModule` | `backend/src/auth/auth.module.ts` | Module | Authentication module |
 | `main` | `backend/src/main.ts` | Entry | Application entry point |
-| `FrontendApp` | `frontend/lib/main.dart` | Entry | Flutter application entry point and AdMob Spike |
+| `MainNavigationScreen` | `frontend/lib/main.dart` | UI | Root navigation with BottomNavigationBar |
+| `HomeScreen` | `frontend/lib/main.dart` | UI | Home screen (Habit list) |
+| `CharacterScreen` | `frontend/lib/main.dart` | UI | RPG character stats screen |
+| `GuildScreen` | `frontend/lib/main.dart` | UI | Social guild screen |
+| `SettingsScreen` | `frontend/lib/main.dart` | UI | App settings screen |
+| `FrontendApp` | `frontend/lib/main.dart` | Entry | Flutter application entry point |
 | `SRS` | `docs/planning/Phase6_Requirement_Specification.md` | Specification | ISO-compliant System Requirement Specification |
 | `.gitignore` | `.gitignore` | Config | Project-wide git ignore rules |
 | `backend/.gitignore` | `backend/.gitignore` | Config | Backend-specific git ignore rules |
