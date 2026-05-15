@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-03-RED",
+  "status": "Verified",
+  "description": "Create AuthService failing unit tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-02-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test auth.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "telemetry_hash": "6128bdf21598cf94165f9b2c2310cac9f2786f66d961721547dc13467a9eb732",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 2,
+    "duration_seconds": 22,
+    "coverage": "N/A"
+  }
+}

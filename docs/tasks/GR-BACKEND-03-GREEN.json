@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-03-GREEN",
+  "status": "Verified",
+  "description": "Implement AuthService and AuthController.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-03-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test auth.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "d5c38695e9017311a524c3592dac585d1adf005dca58742bd8dcdf99485e6040",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 57,
+    "coverage": "96.43%"
+  }
+}
