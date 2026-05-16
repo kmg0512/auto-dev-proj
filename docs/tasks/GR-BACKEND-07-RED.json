@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-07-RED",
+  "status": "Verified",
+  "description": "Create InventoryService failing unit tests for item management.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-06-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test inventory.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 8,
+    "coverage": "N/A"
+  },
+  "telemetry_hash": "61b0546cac7066c230b4e334d528573fe4a7c645e6009e1ecdc7301469cfafa1"
+}
