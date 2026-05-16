@@ -6,9 +6,17 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { HabitsModule } from './habits/habits.module';
 import { GuildsModule } from './guilds/guilds.module';
+import { QuestsModule } from './quests/quests.module';
 
 @Module({
-  imports: [PrismaModule, UsersModule, AuthModule, HabitsModule, GuildsModule],
+  imports: [
+    PrismaModule,
+    UsersModule,
+    AuthModule,
+    HabitsModule,
+    GuildsModule,
+    QuestsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
