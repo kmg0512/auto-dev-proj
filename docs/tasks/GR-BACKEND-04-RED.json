@@ -1,0 +1,20 @@
+{
+  "id": "GR-BACKEND-04-RED",
+  "status": "Verified",
+  "description": "Create HabitsService failing unit tests for CRUD operations.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-03-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test habits.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 300,
+    "coverage": "N/A"
+  }
+}

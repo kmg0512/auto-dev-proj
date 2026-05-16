@@ -13,10 +13,22 @@ model User {
   streak    Int      @default(0)
   guildId   String?
   guild     Guild?   @relation(fields: [guildId], references: [id])
+  habits    Habit[]
   quests    Quest[]
   inventory Inventory[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Habit {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  frequency   String   @default("daily")
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Guild {

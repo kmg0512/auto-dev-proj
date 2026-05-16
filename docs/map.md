@@ -10,6 +10,9 @@
 | `AuthService` | `backend/src/auth/auth.service.ts` | Service | Authentication service |
 | `AuthController` | `backend/src/auth/auth.controller.ts` | Controller | Authentication controller |
 | `AuthModule` | `backend/src/auth/auth.module.ts` | Module | Authentication module |
+| `HabitsService` | `backend/src/habits/habits.service.ts` | Service | Habits management service |
+| `HabitsController` | `backend/src/habits/habits.controller.ts` | Controller | Habits management controller |
+| `HabitsModule` | `backend/src/habits/habits.module.ts` | Module | Habits management module |
 | `main` | `backend/src/main.ts` | Entry | Application entry point |
 | `MainNavigationScreen` | `frontend/lib/main.dart` | UI | Root navigation with BottomNavigationBar |
 | `HomeScreen` | `frontend/lib/main.dart` | UI | Home screen (Habit list) |

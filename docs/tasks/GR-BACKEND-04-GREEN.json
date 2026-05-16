@@ -1,0 +1,20 @@
+{
+  "id": "GR-BACKEND-04-GREEN",
+  "status": "Verified",
+  "description": "Implement HabitsService and HabitsController for CRUD operations.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-04-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test habits.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 600,
+    "coverage": "100.00%"
+  }
+}
