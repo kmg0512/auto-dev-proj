@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-05-GREEN",
+  "status": "Verified",
+  "description": "Implement GuildService and GuildController for Guild management.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-05-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test guild.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 10,
+    "coverage": "83.33%"
+  },
+  "telemetry_hash": "7044bdc50839fc0425b3330bcbca80676e38ba8d268170a881fa81306ae46d3b"
+}

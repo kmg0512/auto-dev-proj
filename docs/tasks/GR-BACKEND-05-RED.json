@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-05-RED",
+  "status": "Verified",
+  "description": "Create GuildService failing unit tests for Guild creation and joining.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-04-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test guild.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 5,
+    "duration_seconds": 4,
+    "coverage": "N/A"
+  },
+  "telemetry_hash": "7be2b41cf4e850679fc9c86622da946bb8a5740f8845225f4dfecf884ba20cf1"
+}

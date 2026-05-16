@@ -1,0 +1,21 @@
+{
+  "id": "GR-FRONTEND-03-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild screen with Create/Join functionality.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-03-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/guild_screen_test.dart",
+    "expected_exit_code": 0
+  },
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 0,
+    "coverage": "83.33%"
+  },
+  "telemetry_hash": "2a2d1c89583109e1555a28d7bdd79f1bea3f7ed587e26bd5ed48b4a2a4ee84c0"
+}

@@ -92,8 +92,24 @@ class GuildScreen extends StatelessWidget {
   const GuildScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Guild Screen')),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Guild')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Create Guild'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Join Guild'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

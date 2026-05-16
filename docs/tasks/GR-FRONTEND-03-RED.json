@@ -1,0 +1,22 @@
+{
+  "id": "GR-FRONTEND-03-RED",
+  "status": "Verified",
+  "description": "Create Guild screen widget tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-05-GREEN",
+    "GR-FRONTEND-02-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/guild_screen_test.dart",
+    "expected_exit_code": 1
+  },
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 9,
+    "duration_seconds": 70,
+    "coverage": "N/A"
+  },
+  "telemetry_hash": "50e068cab5fe0c9bcf44876f33a02f897e0517efbcda94becae6c9af22e2b6c4"
+}

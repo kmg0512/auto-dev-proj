@@ -24,6 +24,7 @@ void main() {
     // Tap on the 'Guild' tab and verify.
     await tester.tap(find.text('Guild'));
     await tester.pump();
-    expect(find.text('Guild Screen'), findsOneWidget);
+    expect(find.text('Create Guild'), findsOneWidget);
+    expect(find.text('Join Guild'), findsOneWidget);
   });
 }
