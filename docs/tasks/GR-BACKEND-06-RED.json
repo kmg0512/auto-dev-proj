@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-06-RED",
+  "status": "Verified",
+  "description": "Create QuestService failing unit tests for AI Quest generation (Mocked AI).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-05-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test quests.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 4,
+    "duration_seconds": 37,
+    "coverage": "N/A"
+  },
+  "telemetry_hash": "45ef0161e1aa645b28cb3e2804d713233ca280a45b33d95ce54b6c15375dcea1"
+}
