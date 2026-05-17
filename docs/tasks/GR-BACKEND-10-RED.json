@@ -1,0 +1,10 @@
+{
+  "id": "GR-BACKEND-10-RED",
+  "title": "RED: Implement Guild Raid Boss HP Management",
+  "description": "Write failing tests for updating and retrieving Guild Raid Boss HP in the database.",
+  "status": "Verified",
+  "category": "Backend",
+  "dependencies": ["GR-BACKEND-07-GREEN"],
+  "verification": "harness test backend --id GR-BACKEND-10-RED",
+  "createdAt": "2026-05-18T00:00:00Z"
+}
