@@ -1,0 +1,11 @@
+{
+  "id": "GR-FRONTEND-04-RED",
+  "status": "Verified",
+  "description": "Add failing tests for Social Chat UI in GuildScreen.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-FRONTEND-03-GREEN"],
+  "mechanical_dod": {
+    "command": "cd frontend && flutter test test/guild_screen_test.dart",
+    "expected_exit_code": 1
+  }
+}

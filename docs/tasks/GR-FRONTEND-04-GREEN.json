@@ -1,0 +1,18 @@
+{
+  "id": "GR-FRONTEND-04-GREEN",
+  "status": "Verified",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 300,
+    "coverage": "85.0%"
+  },
+  "description": "Implement Social Chat UI in GuildScreen.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-FRONTEND-04-RED"],
+  "mechanical_dod": {
+    "command": "cd frontend && flutter test test/guild_screen_test.dart",
+    "expected_exit_code": 0
+  }
+}
