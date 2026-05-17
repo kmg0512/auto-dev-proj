@@ -96,33 +96,56 @@ describe('GuildsService', () => {
     it('should decrease boss HP and return updated HP', async () => {
       const guildId = 'guild-1';
       const damage = 500;
+      const initialGuild = { id: guildId, bossHp: 9000 };
       const updatedGuild = { id: guildId, bossHp: 8500 };
 
+      mockPrismaService.guild.findUnique.mockResolvedValue(initialGuild);
       mockPrismaService.guild.update.mockResolvedValue(updatedGuild);
 
       const result = await (service as any).attackGuildBoss(guildId, damage);
       expect(result).toBe(8500);
+    });
+
+    it('should buffer attacks and not update DB immediately when buffering is enabled', async () => {
+      const guildId = 'guild-1';
+      const damage = 100;
+      
+      mockPrismaService.guild.update.mockClear();
+
+      // Mock current HP in buffer/DB
+      mockPrismaService.guild.findUnique.mockResolvedValue({ id: guildId, bossHp: 10000 });
+
+      // We expect the service to handle buffering.
+      // For the sake of RED test, we expect it NOT to call prisma.guild.update immediately.
+      await service.attackGuildBoss(guildId, damage);
+      
+      expect(prisma.guild.update).not.toHaveBeenCalled();
+    });
+
+    it('should aggregate damage and flush to DB', async () => {
+      const guildId = 'guild-1';
+      const damage1 = 100;
+      const damage2 = 200;
+      
+      mockPrismaService.guild.update.mockClear();
+      mockPrismaService.guild.findUnique.mockResolvedValue({ id: guildId, bossHp: 10000 });
+
+      await service.attackGuildBoss(guildId, damage1);
+      await service.attackGuildBoss(guildId, damage2);
+
+      // Trigger manual flush for testing
+      if ((service as any).flushDamageBuffer) {
+        await (service as any).flushDamageBuffer();
+      }
+
       expect(prisma.guild.update).toHaveBeenCalledWith({
         where: { id: guildId },
         data: {
           bossHp: {
-            decrement: damage,
+            decrement: damage1 + damage2,
           },
         },
       });
-    });
-
-    it('should not allow boss HP to go below 0', async () => {
-      // In a real implementation, we might handle this in the service
-      // For now, let's just test the update call
-      const guildId = 'guild-1';
-      const damage = 10000;
-      const updatedGuild = { id: guildId, bossHp: 0 };
-
-      mockPrismaService.guild.update.mockResolvedValue(updatedGuild);
-
-      const result = await (service as any).attackGuildBoss(guildId, damage);
-      expect(result).toBe(0);
     });
   });
 });

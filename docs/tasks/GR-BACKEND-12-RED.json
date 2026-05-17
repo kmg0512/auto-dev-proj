@@ -1,0 +1,10 @@
+{
+  "id": "GR-BACKEND-12-RED",
+  "title": "RED: Redis Write-behind for Boss HP",
+  "description": "Create failing tests for buffered Boss HP updates using a Write-behind pattern in GuildsService.",
+  "status": "Verified",
+  "category": "Backend",
+  "dependencies": ["GR-BACKEND-11-GREEN"],
+  "verification": "cd backend && npx jest src/guilds/guilds.service.spec.ts",
+  "createdAt": "2026-05-18T00:00:00Z"
+}

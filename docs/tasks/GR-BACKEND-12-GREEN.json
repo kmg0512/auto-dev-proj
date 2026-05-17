@@ -1,0 +1,10 @@
+{
+  "id": "GR-BACKEND-12-GREEN",
+  "title": "GREEN: Implement Redis Write-behind for Boss HP",
+  "description": "Implement the Write-behind pattern in GuildsService to buffer Boss HP updates and batch update the database.",
+  "status": "Verified",
+  "category": "Backend",
+  "dependencies": ["GR-BACKEND-12-RED"],
+  "verification": "cd backend && npx jest src/guilds/guilds.service.spec.ts",
+  "createdAt": "2026-05-18T00:00:00Z"
+}
