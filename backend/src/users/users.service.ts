@@ -36,4 +36,30 @@ export class UsersService {
       where: { id },
     });
   }
+
+  async addExperience(userId: string, expToAdd: number): Promise<User> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    let newExp = user.exp + expToAdd;
+    let newLevel = user.level;
+
+    while (newExp >= 100) {
+      newExp -= 100;
+      newLevel += 1;
+    }
+
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        exp: newExp,
+        level: newLevel,
+      },
+    });
+  }
 }
