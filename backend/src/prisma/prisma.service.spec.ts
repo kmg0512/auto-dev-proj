@@ -21,4 +21,14 @@ describe('PrismaService', () => {
     await service.onModuleInit();
     expect(connectSpy).toHaveBeenCalled();
   });
+
+  it('should call $disconnect and pool.end on destruction', async () => {
+    const disconnectSpy = jest.spyOn(service, '$disconnect').mockResolvedValue(undefined);
+    const poolEndSpy = jest.spyOn((service as any).pool, 'end').mockResolvedValue(undefined);
+
+    await service.onModuleDestroy();
+
+    expect(disconnectSpy).toHaveBeenCalled();
+    expect(poolEndSpy).toHaveBeenCalled();
+  });
 });
