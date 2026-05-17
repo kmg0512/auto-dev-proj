@@ -31,5 +31,8 @@
 | `docs/tasks/GR-BACKEND-11-GREEN.json` | `docs/tasks/GR-BACKEND-11-GREEN.json` | Task | GREEN: Implement WebSocket Boss HP Sync |
 | `docs/tasks/GR-BACKEND-12-RED.json` | `docs/tasks/GR-BACKEND-12-RED.json` | Task | RED: Redis Write-behind for Boss HP tests |
 | `docs/tasks/GR-BACKEND-12-GREEN.json` | `docs/tasks/GR-BACKEND-12-GREEN.json` | Task | GREEN: Implement Redis Write-behind for Boss HP |
+| `docs/tasks/GR-FRONTEND-04-GREEN.json` | `docs/tasks/GR-FRONTEND-04-GREEN.json` | Task | GREEN: Social Chat UI |
+| `docs/tasks/GR-FRONTEND-05-RED.json` | `docs/tasks/GR-FRONTEND-05-RED.json` | Task | RED: Boss Raid UI failing tests |
+| `docs/tasks/GR-FRONTEND-05-GREEN.json` | `docs/tasks/GR-FRONTEND-05-GREEN.json` | Task | GREEN: Implement Boss Raid UI & Sync |
 |.gitignore | .gitignore | Config | Project-wide git ignore rules |
 | `backend/.gitignore` | `backend/.gitignore` | Config | Backend-specific git ignore rules |
