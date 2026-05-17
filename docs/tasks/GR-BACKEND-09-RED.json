@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-09-RED",
-  "status": "Pending",
+  "status": "Verified",
   "description": "Create GuildsGateway failing tests for real-time boss raid synchronization.",
   "agent": "Gemini-CLI",
   "depends_on": [
