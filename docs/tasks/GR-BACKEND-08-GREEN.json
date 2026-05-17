@@ -1,0 +1,18 @@
+{
+  "id": "GR-BACKEND-08-GREEN",
+  "status": "Verified",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 60,
+    "coverage": "94.44%"
+  },
+  "description": "Implement Character Leveling and Experience logic to pass tests.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-BACKEND-08-RED"],
+  "mechanical_dod": {
+    "command": "cd backend && npm test src/users/users.service.spec.ts",
+    "expected_exit_code": 0
+  }
+}
