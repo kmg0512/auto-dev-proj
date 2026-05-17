@@ -1,0 +1,20 @@
+{
+  "id": "GR-BACKEND-11-RED",
+  "title": "RED: WebSocket real-time Boss HP Sync",
+  "description": "Write failing tests for real-time Guild Raid Boss HP synchronization via WebSockets.",
+  "status": "Verified",
+  "category": "Backend",
+  "dependencies": [
+    "GR-BACKEND-10-GREEN"
+  ],
+  "verification": "harness test backend --id GR-BACKEND-11-RED",
+  "createdAt": "2026-05-18T00:00:00Z",
+  "telemetry_hash": "e8f7bb634c672f852f188f230a4d8df6120bd5c8f7896f227b3d6ce5ca0f859e",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 3,
+    "coverage": "N/A"
+  }
+}

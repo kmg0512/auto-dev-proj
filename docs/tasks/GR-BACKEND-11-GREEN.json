@@ -1,0 +1,20 @@
+{
+  "id": "GR-BACKEND-11-GREEN",
+  "title": "GREEN: Implement WebSocket real-time Boss HP Sync",
+  "description": "Implement the logic in GuildsGateway to update and broadcast Boss HP in real-time.",
+  "status": "Verified",
+  "category": "Backend",
+  "dependencies": [
+    "GR-BACKEND-11-RED"
+  ],
+  "verification": "harness test backend --id GR-BACKEND-11-GREEN",
+  "createdAt": "2026-05-18T00:00:00Z",
+  "telemetry_hash": "812fff9c5f0008aefa5e2745cae62bd404dd1b21955bed26b2fa5b238bd7d75e",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 2,
+    "coverage": "83.33%"
+  }
+}

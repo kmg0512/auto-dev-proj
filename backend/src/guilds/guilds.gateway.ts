@@ -32,13 +32,30 @@ export class GuildsGateway {
   async handleAttackBoss(
     @MessageBody() data: { guildId: string; damage: number; userId: string },
   ) {
-    // In a real implementation, we would update the boss HP in Redis/DB via guildsService
-    // For now, we broadcast the damage to all members in the guild raid room
+    const newHp = await this.guildsService.attackGuildBoss(
+      data.guildId,
+      data.damage,
+    );
+
     this.server.to(`guild_raid_${data.guildId}`).emit('bossAttacked', {
       userId: data.userId,
       damage: data.damage,
     });
-    
-    return { event: 'attackAcknowledged', data: { damage: data.damage } };
+
+    this.server.to(`guild_raid_${data.guildId}`).emit('bossHpUpdated', {
+      newHp: newHp,
+    });
+
+    if (newHp <= 0) {
+      this.server.to(`guild_raid_${data.guildId}`).emit('bossDefeated', {
+        guildId: data.guildId,
+        defeatedBy: data.userId,
+      });
+    }
+
+    return {
+      event: 'attackAcknowledged',
+      data: { damage: data.damage, newHp: newHp },
+    };
   }
 }

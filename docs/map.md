@@ -13,6 +13,8 @@
 | `HabitsService` | `backend/src/habits/habits.service.ts` | Service | Habits management service |
 | `HabitsController` | `backend/src/habits/habits.controller.ts` | Controller | Habits management controller |
 | `HabitsModule` | `backend/src/habits/habits.module.ts` | Module | Habits management module |
+| `GuildsService` | `backend/src/guilds/guilds.service.ts` | Service | Guild and Raid management service |
+| `GuildsGateway` | `backend/src/guilds/guilds.gateway.ts` | Gateway | Real-time WebSocket communication for Guilds |
 | `main` | `backend/src/main.ts` | Entry | Application entry point |
 | `MainNavigationScreen` | `frontend/lib/main.dart` | UI | Root navigation with BottomNavigationBar |
 | `HomeScreen` | `frontend/lib/main.dart` | UI | Home screen (Habit list) |
@@ -25,5 +27,7 @@
 | `docs/tasks/GR-BACKEND-08-GREEN.json` | `docs/tasks/GR-BACKEND-08-GREEN.json` | Task | GREEN: Implement Leveling system |
 | `docs/tasks/GR-BACKEND-10-RED.json` | `docs/tasks/GR-BACKEND-10-RED.json` | Task | RED: Guild Raid Boss HP Management |
 | `docs/tasks/GR-BACKEND-10-GREEN.json` | `docs/tasks/GR-BACKEND-10-GREEN.json` | Task | GREEN: Implement Guild Raid Boss HP Management |
+| `docs/tasks/GR-BACKEND-11-RED.json` | `docs/tasks/GR-BACKEND-11-RED.json` | Task | RED: WebSocket Boss HP Sync tests |
+| `docs/tasks/GR-BACKEND-11-GREEN.json` | `docs/tasks/GR-BACKEND-11-GREEN.json` | Task | GREEN: Implement WebSocket Boss HP Sync |
 | `.gitignore` | `.gitignore` | Config | Project-wide git ignore rules |
 | `backend/.gitignore` | `backend/.gitignore` | Config | Backend-specific git ignore rules |
