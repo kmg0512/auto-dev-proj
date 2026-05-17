@@ -93,4 +93,30 @@ describe('UsersService', () => {
       expect(mockPrismaService.user.delete).toHaveBeenCalledWith({ where: { id } });
     });
   });
+
+  describe('leveling', () => {
+    it('should add experience to user', async () => {
+      const id = '1';
+      const initialUser = { id, exp: 0, level: 1 };
+      const updatedUser = { id, exp: 50, level: 1 };
+      mockPrismaService.user.findUnique.mockResolvedValue(initialUser);
+      mockPrismaService.user.update.mockResolvedValue(updatedUser);
+
+      const result = await (service as any).addExperience(id, 50);
+      expect(result.exp).toBe(50);
+      expect(mockPrismaService.user.update).toHaveBeenCalled();
+    });
+
+    it('should level up when experience exceeds threshold', async () => {
+      const id = '1';
+      const initialUser = { id, exp: 90, level: 1 };
+      const updatedUser = { id, exp: 10, level: 2 }; // Assuming 100 exp per level
+      mockPrismaService.user.findUnique.mockResolvedValue(initialUser);
+      mockPrismaService.user.update.mockResolvedValue(updatedUser);
+
+      const result = await (service as any).addExperience(id, 20);
+      expect(result.level).toBe(2);
+      expect(result.exp).toBe(10);
+    });
+  });
 });

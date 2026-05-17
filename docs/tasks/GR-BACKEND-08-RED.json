@@ -1,0 +1,11 @@
+{
+  "id": "GR-BACKEND-08-RED",
+  "status": "Verified",
+  "description": "Create failing tests for Character Leveling and Experience gain.",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-BACKEND-07-GREEN"],
+  "mechanical_dod": {
+    "command": "cd backend && npm test src/users/users.service.spec.ts",
+    "expected_exit_code": 1
+  }
+}
