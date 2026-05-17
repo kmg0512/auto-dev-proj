@@ -118,5 +118,12 @@ describe('UsersService', () => {
       expect(result.level).toBe(2);
       expect(result.exp).toBe(10);
     });
+
+    it('should throw an error if user is not found', async () => {
+      const id = 'non-existent';
+      mockPrismaService.user.findUnique.mockResolvedValue(null);
+
+      await expect((service as any).addExperience(id, 10)).rejects.toThrow('User not found');
+    });
   });
 });
