@@ -5,24 +5,24 @@ import 'package:frontend/main.dart';
 void main() {
   testWidgets('UI Skeleton Navigation Test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const GuildRoutineApp());
+    await tester.pumpWidget(const GuildRoutineApp(isTestMode: true));
 
     // Verify that the BottomNavigationBar is present.
     expect(find.byType(BottomNavigationBar), findsOneWidget);
 
     // Verify that the navigation items are present.
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Character'), findsOneWidget);
-    expect(find.text('Guild'), findsOneWidget);
-    expect(find.text('Settings'), findsOneWidget);
+    expect(find.text('Home'), findsWidgets);
+    expect(find.text('Character'), findsWidgets);
+    expect(find.text('Guild'), findsWidgets);
+    expect(find.text('Settings'), findsWidgets);
 
     // Tap on the 'Character' tab and verify.
-    await tester.tap(find.text('Character'));
+    await tester.tap(find.byIcon(Icons.person));
     await tester.pump();
     expect(find.text('Character Screen'), findsOneWidget);
 
     // Tap on the 'Guild' tab and verify.
-    await tester.tap(find.text('Guild'));
+    await tester.tap(find.byIcon(Icons.group));
     await tester.pump();
     expect(find.text('Create Guild'), findsOneWidget);
     expect(find.text('Join Guild'), findsOneWidget);

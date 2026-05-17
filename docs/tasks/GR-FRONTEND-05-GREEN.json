@@ -1,11 +1,21 @@
 {
   "id": "GR-FRONTEND-05-GREEN",
-  "status": "Backlog",
+  "status": "Verified",
   "description": "Implement Boss HP display, hit animation, and WebSocket sync.",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-FRONTEND-05-RED"],
+  "depends_on": [
+    "GR-FRONTEND-05-RED"
+  ],
   "mechanical_dod": {
     "command": "cd frontend && flutter test test/guild_screen_test.dart",
     "expected_exit_code": 0
+  },
+  "telemetry_hash": "e2cbbaca6f1c94cf26d525ead20eb009860f54eb7448a84b4f8489df787376ad",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 8,
+    "duration_seconds": 108,
+    "coverage": "80.00%"
   }
 }
