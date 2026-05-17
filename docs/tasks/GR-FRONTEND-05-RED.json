@@ -1,0 +1,21 @@
+{
+  "id": "GR-FRONTEND-05-RED",
+  "status": "Verified",
+  "description": "Create failing widget tests for Boss HP and Attack Boss button.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-04-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && flutter test test/guild_screen_test.dart",
+    "expected_exit_code": 1
+  },
+  "telemetry_hash": "437863ce93584e4b69bab0335076c8f1716de918d5594c7d3e8d895b9988654f",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 14,
+    "coverage": "N/A"
+  }
+}

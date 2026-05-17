@@ -16,4 +16,11 @@ void main() {
     expect(find.byType(TextField), findsOneWidget);
     expect(find.widgetWithIcon(IconButton, Icons.send), findsOneWidget);
   });
+
+  testWidgets('GuildScreen should have Boss Raid UI components', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: GuildScreen()));
+
+    expect(find.textContaining('Boss HP:'), findsOneWidget);
+    expect(find.text('Attack Boss'), findsOneWidget);
+  });
 }
