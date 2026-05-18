@@ -36,4 +36,15 @@ export class HabitsService {
       where: { id },
     });
   }
+
+  async recoverStreak(userId: string) {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        streak: {
+          increment: 1,
+        },
+      },
+    });
+  }
 }

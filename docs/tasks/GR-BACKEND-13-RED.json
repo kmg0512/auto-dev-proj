@@ -1,0 +1,27 @@
+{
+  "id": "GR-BACKEND-13-RED",
+  "status": "Verified",
+  "description": "Create failing tests for Streak Recovery via Reward Ads.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-04-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test habits.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-04",
+    "RULE-BE-TDD-01"
+  ],
+  "telemetry_hash": "fe9d7c020160a7b909d4ccee891dc90d7de651168289127d87bc49a30b0bd9fd",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 7,
+    "duration_seconds": 33,
+    "coverage": "N/A"
+  }
+}
