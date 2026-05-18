@@ -8,5 +8,6 @@ import { GuildsGateway } from './guilds.gateway';
   imports: [PrismaModule],
   controllers: [GuildsController],
   providers: [GuildsService, GuildsGateway],
+  exports: [GuildsService],
 })
 export class GuildsModule {}

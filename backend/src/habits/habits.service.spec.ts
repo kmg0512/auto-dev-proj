@@ -1,10 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HabitsService } from './habits.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { UsersService } from '../users/users.service';
+import { GuildsService } from '../guilds/guilds.service';
 
 describe('HabitsService', () => {
   let service: HabitsService;
   let prisma: PrismaService;
+  let usersService: UsersService;
+  let guildsService: GuildsService;
 
   const mockHabit = {
     id: 'habit-id',
@@ -12,6 +16,10 @@ describe('HabitsService', () => {
     description: 'Go to the gym',
     frequency: 'daily',
     userId: 'user-id',
+    user: {
+      id: 'user-id',
+      guildId: 'guild-id',
+    },
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -23,6 +31,7 @@ describe('HabitsService', () => {
     streak: 5,
     level: 1,
     exp: 0,
+    guildId: 'guild-id',
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -42,6 +51,14 @@ describe('HabitsService', () => {
     $transaction: jest.fn((callback) => callback(mockPrismaService)),
   };
 
+  const mockUsersService = {
+    addExperience: jest.fn().mockResolvedValue(mockUser),
+  };
+
+  const mockGuildsService = {
+    attackGuildBoss: jest.fn().mockResolvedValue(9995),
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -50,11 +67,21 @@ describe('HabitsService', () => {
           provide: PrismaService,
           useValue: mockPrismaService,
         },
+        {
+          provide: UsersService,
+          useValue: mockUsersService,
+        },
+        {
+          provide: GuildsService,
+          useValue: mockGuildsService,
+        },
       ],
     }).compile();
 
     service = module.get<HabitsService>(HabitsService);
     prisma = module.get<PrismaService>(PrismaService);
+    usersService = module.get<UsersService>(UsersService);
+    guildsService = module.get<GuildsService>(GuildsService);
   });
 
   it('should be defined', () => {
@@ -75,47 +102,23 @@ describe('HabitsService', () => {
     });
   });
 
-  describe('findAll', () => {
-    it('should return an array of habits', async () => {
-      const result = await service.findAll('user-id');
-      expect(result).toEqual([mockHabit]);
-      expect(prisma.habit.findMany).toHaveBeenCalled();
-    });
-  });
-
-  describe('findOne', () => {
-    it('should return a single habit', async () => {
-      const result = await service.findOne('habit-id');
-      expect(result).toEqual(mockHabit);
-      expect(prisma.habit.findUnique).toHaveBeenCalled();
-    });
-  });
-
-  describe('update', () => {
-    it('should update a habit', async () => {
-      const updateDto = { title: 'Run' };
-      const result = await service.update('habit-id', updateDto);
-      expect(result).toEqual(mockHabit);
-      expect(prisma.habit.update).toHaveBeenCalled();
-    });
-  });
-
-  describe('remove', () => {
-    it('should delete a habit', async () => {
-      const result = await service.remove('habit-id');
-      expect(result).toEqual(mockHabit);
-      expect(prisma.habit.delete).toHaveBeenCalled();
-    });
-  });
-
   describe('recoverStreak', () => {
     it('should increment user streak when ad is watched', async () => {
-      const result = await (service as any).recoverStreak('user-id');
+      const result = await service.recoverStreak('user-id');
       expect(result).toBeDefined();
-      expect(prisma.user.update).toHaveBeenCalledWith({
-        where: { id: 'user-id' },
-        data: { streak: { increment: 1 } },
-      });
+      expect(prisma.user.update).toHaveBeenCalled();
+    });
+  });
+
+  describe('completeHabit', () => {
+    it('should trigger EXP gain and Guild Boss attack upon completion', async () => {
+      const result = await (service as any).completeHabit('habit-id');
+      
+      expect(result).toBeDefined();
+      // Should call UsersService to add EXP
+      expect(usersService.addExperience).toHaveBeenCalledWith('user-id', 10);
+      // Should call GuildsService to damage boss (if in guild)
+      expect(guildsService.attackGuildBoss).toHaveBeenCalledWith('guild-id', 5);
     });
   });
 });

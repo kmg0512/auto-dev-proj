@@ -1,0 +1,28 @@
+{
+  "id": "GR-BACKEND-14-GREEN",
+  "status": "Verified",
+  "description": "Implement completeHabit with EXP and Boss damage logic.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-14-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/habits/habits.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-04",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ],
+  "telemetry_hash": "aabe2c4223fb1748ee0f86d01af5442dc5eb852c66626da8ed82b576906a1790",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 12,
+    "coverage": "80.00%"
+  }
+}
