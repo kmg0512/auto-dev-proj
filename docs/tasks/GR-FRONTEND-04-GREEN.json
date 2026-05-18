@@ -10,9 +10,24 @@
   },
   "description": "Implement Social Chat UI in GuildScreen.",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-FRONTEND-04-RED"],
+  "depends_on": [
+    "GR-FRONTEND-04-RED"
+  ],
   "mechanical_dod": {
     "command": "cd frontend && flutter test test/guild_screen_test.dart",
     "expected_exit_code": 0
-  }
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-03",
+    "RULE-FE-TDD-01",
+    "RULE-FE-TDD-03"
+  ]
 }

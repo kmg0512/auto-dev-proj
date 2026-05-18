@@ -3,9 +3,24 @@
   "status": "Verified",
   "description": "Implement PrismaService to pass tests.",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-BACKEND-01-RED"],
+  "depends_on": [
+    "GR-BACKEND-01-RED"
+  ],
   "mechanical_dod": {
     "command": "cd backend && npm run test",
     "expected_exit_code": 0
-  }
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-BE-01",
+    "RULE-BE-02",
+    "RULE-BE-03",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ]
 }

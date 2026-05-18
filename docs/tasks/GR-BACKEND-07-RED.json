@@ -17,5 +17,17 @@
     "duration_seconds": 8,
     "coverage": "N/A"
   },
-  "telemetry_hash": "61b0546cac7066c230b4e334d528573fe4a7c645e6009e1ecdc7301469cfafa1"
+  "telemetry_hash": "61b0546cac7066c230b4e334d528573fe4a7c645e6009e1ecdc7301469cfafa1",
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-BE-01",
+    "RULE-BE-02",
+    "RULE-BE-03",
+    "RULE-BE-TDD-01"
+  ]
 }

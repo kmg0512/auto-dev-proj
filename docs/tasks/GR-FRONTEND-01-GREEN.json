@@ -3,9 +3,24 @@
   "status": "Verified",
   "description": "Implement AdMob Spike Dummy UI and pass tests.",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-FRONTEND-01-RED"],
+  "depends_on": [
+    "GR-FRONTEND-01-RED"
+  ],
   "mechanical_dod": {
     "command": "cd frontend && ~/develop/flutter/bin/flutter test",
     "expected_exit_code": 0
-  }
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-03",
+    "RULE-FE-TDD-01",
+    "RULE-FE-TDD-03"
+  ]
 }

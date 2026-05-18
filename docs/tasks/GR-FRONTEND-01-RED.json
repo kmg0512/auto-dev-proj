@@ -3,9 +3,23 @@
   "status": "Verified",
   "description": "Create AdMob Spike UI failing test.",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-BACKEND-01-GREEN"],
+  "depends_on": [
+    "GR-BACKEND-01-GREEN"
+  ],
   "mechanical_dod": {
     "command": "cd frontend && ~/develop/flutter/bin/flutter test",
     "expected_exit_code": 1
-  }
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-03",
+    "RULE-FE-TDD-01"
+  ]
 }

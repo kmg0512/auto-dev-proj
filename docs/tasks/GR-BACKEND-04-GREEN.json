@@ -16,5 +16,18 @@
     "retry_count": 0,
     "duration_seconds": 600,
     "coverage": "100.00%"
-  }
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-BE-01",
+    "RULE-BE-02",
+    "RULE-BE-03",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ]
 }

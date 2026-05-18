@@ -16,5 +16,11 @@
   },
   "approved": false,
   "telemetry_hash": "manual-init",
-  "delta_note": "Initial setup completed."
+  "delta_note": "Initial setup completed.",
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-03",
+    "RULE-HAR-01",
+    "RULE-HAR-03"
+  ]
 }

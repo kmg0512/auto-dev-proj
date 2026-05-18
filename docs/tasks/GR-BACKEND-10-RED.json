@@ -4,7 +4,21 @@
   "description": "Write failing tests for updating and retrieving Guild Raid Boss HP in the database.",
   "status": "Verified",
   "category": "Backend",
-  "dependencies": ["GR-BACKEND-07-GREEN"],
+  "dependencies": [
+    "GR-BACKEND-07-GREEN"
+  ],
   "verification": "harness test backend --id GR-BACKEND-10-RED",
-  "createdAt": "2026-05-18T00:00:00Z"
+  "createdAt": "2026-05-18T00:00:00Z",
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-GATE-01",
+    "RULE-GATE-02",
+    "RULE-BE-01",
+    "RULE-BE-02",
+    "RULE-BE-03",
+    "RULE-BE-TDD-01"
+  ]
 }

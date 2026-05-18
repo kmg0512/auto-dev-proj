@@ -1,31 +1,22 @@
-# Harness Protocol Governance
+# [ROOT] Harness Protocol Governance [RULE-GOV-01]
 
-This project is governed by the **Harness Protocol**. All AI agents operating in this repository must adhere to the following rules.
+This is the **Global Root Governance**. All sub-modules (Backend, Frontend, Harness) MUST inherit and comply with these base invariants.
 
-## 1. Repository as System of Record (SOR)
-- All tasks, decisions, and architectural updates must be documented in the repository.
-- Task registry: `docs/tasks/`
-- Semantic map: `docs/map.md`
+## 1. Global Invariants (Immutable)
+- **[RULE-INV-01]** The repository is the single Source of Truth (SOR).
+- **[RULE-INV-02]** Every change MUST follow the TDD RED-GREEN cycle via `harness.py`.
+- **[RULE-INV-03]** Raw `git` commands are strictly forbidden for committing changes.
+- **[RULE-INV-04]** Hierarchical AGENTS.md: Root rules apply globally, subdirectory `AGENTS.md` provide domain-specific overrides.
 
-## 2. TDD Workflow (RED-GREEN)
-- Development must be split into two tasks:
-  1. **RED Task**: Write failing tests (`[task_id]-RED.json`).
-  2. **GREEN Task**: Implement production code to satisfy tests (`[task_id]-GREEN.json`).
-- Production code must achieve >= 80% line coverage.
+## 2. Multi-Persona Execution
+- **[RULE-PER-01] Lead Architect**: Global system design and inter-module consistency.
+- **[RULE-PER-02] Principal Critic**: Validation of invariants and cross-module integrity.
 
-## 3. Mechanical Invariants
-- Use the `harness.py` CLI for verification and commits.
-- Absolute path to `harness.py`: `/Users/macbook/.agents/skills/harness/scripts/harness.py`
+## 3. Distributed Policy Mapping
+- **Backend Rules**: Defined in `./backend/AGENTS.md`.
+- **Frontend Rules**: Defined in `./frontend/AGENTS.md`.
+- **Infrastructure/Harness Rules**: Defined in `./.harness/AGENTS.md`.
 
-## 4. Verification Protocol
-- Every task MUST be verified via `harness test`.
-- Line coverage MUST be >= 80%.
-- Bypassing verification is an Integrity Violation.
-
-## 5. Documentation Standards
-- Architectural documentation: ISO 42010 (`docs/architecture.md`)
-- Quality metrics: ISO 25010 (`docs/quality_metrics.md`)
-
-## 6. Safety & Security
-- No modification to `.harness/` or internal harness state.
-- Maximum 3 self-healing attempts before human hand-off.
+## 4. Verification Gateways
+- **[RULE-GATE-01]** Global line coverage threshold: >= 80%.
+- **[RULE-GATE-02]** Deadlock prevention: 3 failures = Halt & Report.
