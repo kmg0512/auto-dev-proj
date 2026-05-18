@@ -1,53 +1,90 @@
-# ISO/IEC/IEEE 42010 Architecture Specification: GuildRoutine
+# ISO/IEC/IEEE 42010 Architecture Specification
 
-| 문서 번호 | GR-ARCH-001 | 프로젝트 명 | GuildRoutine |
-| :--- | :--- | :--- | :--- |
-| **버전** | v1.1.0 | **상태** | Approved |
+## 1. Overview
+This document provides the architectural description of the system, synchronized with the semantic map.
 
----
+## 2. System Stakeholders
+- Humans: Developers, PMs, Architects
+- Agents: Coding Agents, QA Agents
 
-## 1. 개요 (Overview)
-본 문서는 GuildRoutine 시스템의 아키텍처를 정의하며, ISO/IEC/IEEE 42010 표준에 따라 시스템의 이해관계자, 아키텍처 결정 사항, 그리고 논리적/물리적 뷰를 기술합니다.
+## 3. Logical Structure
+The following diagram represents the domain boundaries and dependencies.
 
-## 2. 이해관계자 및 관심사 (Stakeholders & Concerns)
-*   **Developers:** 구현의 용이성, 코드 재사용성, 기술적 무결성.
-*   **PM/Business:** 비즈니스 목표(AdMob 수익) 달성, 서비스 안정성.
-*   **End Users:** 실시간 동기화 품질, 퀘스트의 재미(AI 스토리텔링).
-*   **QA Agents:** 요구사항의 검증 가능성 및 테스트 자동화.
-
-## 3. 아키텍처 결정 (Architectural Decisions)
-
-| ID | 결정 사항 | 근거 (Rationale) | 연관 요구사항 |
-| :--- | :--- | :--- | :--- |
-| **AD-001** | Redis 캐싱 레이어 도입 | OpenAI API 비용 절감 및 대규모 레이드 시 DB 부하 분산. | GR-FR-104, GR-RSK-301 |
-| **AD-002** | Socket.io 실시간 통신 | 길드원 간의 즉각적인 보스 레이드 상태 동기화 필요. | GR-FR-102 |
-| **AD-003** | PostgreSQL RDBMS 채택 | 길드, 인벤토리, 사용자 간의 복잡한 관계성 및 트랜잭션 무결성 보장. | GR-NFR-202 |
-
-## 4. 논리적 구조 및 추적성 (Logical View & Traceability)
-
-### 4.1 시스템 컴포넌트 맵핑
-본 시스템의 아키텍처는 `docs/map.md`의 시맨틱 맵과 동기화되어 있으며, 각 컴포넌트는 SRS의 요구사항을 충족합니다.
-
-| 컴포넌트 명 | 파일 경로 | 책임 (Responsibility) | 충족 요구사항 |
-| :--- | :--- | :--- | :--- |
-| **AppController** | `backend/src/app.controller.ts` | 외부 요청 진입점 및 라우팅 제어. | GR-FR-101 |
-| **AppService** | `backend/src/app.service.ts` | 핵심 비즈니스 로직(AI 퀘스트 변환 등) 수행. | GR-FR-101, GR-FR-104 |
-| **AppModule** | `backend/src/app.module.ts` | 시스템 의존성 주입 및 모듈 구성. | GR-NFR-202 |
-| **Socket Gateway** | (TBD) | 실시간 보스 레이드 데미지 브로드캐스팅. | GR-FR-102 |
-
-### 4.2 시스템 다이어그램
 ```mermaid
 graph TD
-    User((User)) -->|HTTPS| FlutterApp[Flutter Mobile App]
-    FlutterApp -->|REST/WS| NestJS[NestJS Backend]
-    NestJS -->|Caching| Redis[(Redis)]
-    NestJS -->|Persistence| Postgres[(PostgreSQL)]
-    NestJS -->|AI Analysis| OpenAI[OpenAI API]
+    AppController --> backend
+    AppModule --> backend
+    AppService --> backend
+    AuthController --> backend
+    AuthModule --> backend
+    AuthService --> backend
+    CharacterScreen --> frontend
+    FrontendApp --> frontend
+    GuildScreen --> frontend
+    GuildsGateway --> backend
+    GuildsService --> backend
+    HabitsController --> backend
+    HabitsModule --> backend
+    HabitsService --> backend
+    HomeScreen --> frontend
+    MainNavigationScreen --> frontend
+    SRS --> docs
+    SettingsScreen --> frontend
+    UsersModule --> backend
+    UsersService --> backend
+    backend/.gitignore --> backend
+    docs/tasks/GR-BACKEND-08-GREEN.json --> docs
+    docs/tasks/GR-BACKEND-08-RED.json --> docs
+    docs/tasks/GR-BACKEND-10-GREEN.json --> docs
+    docs/tasks/GR-BACKEND-10-RED.json --> docs
+    docs/tasks/GR-BACKEND-11-GREEN.json --> docs
+    docs/tasks/GR-BACKEND-11-RED.json --> docs
+    docs/tasks/GR-BACKEND-12-GREEN.json --> docs
+    docs/tasks/GR-BACKEND-12-RED.json --> docs
+    docs/tasks/GR-FRONTEND-04-GREEN.json --> docs
+    docs/tasks/GR-FRONTEND-05-GREEN.json --> docs
+    docs/tasks/GR-FRONTEND-05-RED.json --> docs
+    docs/tasks/GR-FRONTEND-06-GREEN.json --> docs
+    docs/tasks/GR-FRONTEND-06-RED.json --> docs
+    main --> backend
 ```
 
-## 5. 보안 관점 (Security Viewpoint)
-*   **Authentication:** 모든 API 요청은 OAuth 2.0 기반 Access Token 검증 필수. (GR-NFR-202)
-*   **Data Integrity:** 보스 레이드 데미지 연산 시 서버 측 검증 로직을 거쳐 조작 방지.
+## 4. Components & Responsibilities
+- **AppController**: Located in `backend/src/app.controller.ts`. Root controller for NestJS
+- **AppService**: Located in `backend/src/app.service.ts`. Root service for NestJS
+- **AppModule**: Located in `backend/src/app.module.ts`. Root module for NestJS
+- **UsersService**: Located in `backend/src/users/users.service.ts`. User management service
+- **UsersModule**: Located in `backend/src/users/users.module.ts`. User management module
+- **AuthService**: Located in `backend/src/auth/auth.service.ts`. Authentication service
+- **AuthController**: Located in `backend/src/auth/auth.controller.ts`. Authentication controller
+- **AuthModule**: Located in `backend/src/auth/auth.module.ts`. Authentication module
+- **HabitsService**: Located in `backend/src/habits/habits.service.ts`. Habits management service
+- **HabitsController**: Located in `backend/src/habits/habits.controller.ts`. Habits management controller
+- **HabitsModule**: Located in `backend/src/habits/habits.module.ts`. Habits management module
+- **GuildsService**: Located in `backend/src/guilds/guilds.service.ts`. Guild and Raid management service
+- **GuildsGateway**: Located in `backend/src/guilds/guilds.gateway.ts`. Real-time WebSocket communication for Guilds
+- **main**: Located in `backend/src/main.ts`. Application entry point
+- **MainNavigationScreen**: Located in `frontend/lib/main.dart`. Root navigation with BottomNavigationBar
+- **HomeScreen**: Located in `frontend/lib/main.dart`. Home screen (Habit list)
+- **CharacterScreen**: Located in `frontend/lib/main.dart`. RPG character stats screen
+- **GuildScreen**: Located in `frontend/lib/main.dart`. Social guild screen
+- **SettingsScreen**: Located in `frontend/lib/main.dart`. App settings screen
+- **FrontendApp**: Located in `frontend/lib/main.dart`. Flutter application entry point
+- **SRS**: Located in `docs/planning/Phase6_Requirement_Specification.md`. ISO-compliant System Requirement Specification
+- **docs/tasks/GR-BACKEND-08-RED.json**: Located in `docs/tasks/GR-BACKEND-08-RED.json`. RED: Leveling system failing tests
+- **docs/tasks/GR-BACKEND-08-GREEN.json**: Located in `docs/tasks/GR-BACKEND-08-GREEN.json`. GREEN: Implement Leveling system
+- **docs/tasks/GR-BACKEND-10-RED.json**: Located in `docs/tasks/GR-BACKEND-10-RED.json`. RED: Guild Raid Boss HP Management
+- **docs/tasks/GR-BACKEND-10-GREEN.json**: Located in `docs/tasks/GR-BACKEND-10-GREEN.json`. GREEN: Implement Guild Raid Boss HP Management
+- **docs/tasks/GR-BACKEND-11-RED.json**: Located in `docs/tasks/GR-BACKEND-11-RED.json`. RED: WebSocket Boss HP Sync tests
+- **docs/tasks/GR-BACKEND-11-GREEN.json**: Located in `docs/tasks/GR-BACKEND-11-GREEN.json`. GREEN: Implement WebSocket Boss HP Sync
+- **docs/tasks/GR-BACKEND-12-RED.json**: Located in `docs/tasks/GR-BACKEND-12-RED.json`. RED: Redis Write-behind for Boss HP tests
+- **docs/tasks/GR-BACKEND-12-GREEN.json**: Located in `docs/tasks/GR-BACKEND-12-GREEN.json`. GREEN: Implement Redis Write-behind for Boss HP
+- **docs/tasks/GR-FRONTEND-04-GREEN.json**: Located in `docs/tasks/GR-FRONTEND-04-GREEN.json`. GREEN: Social Chat UI
+- **docs/tasks/GR-FRONTEND-05-RED.json**: Located in `docs/tasks/GR-FRONTEND-05-RED.json`. RED: Boss Raid UI failing tests
+- **docs/tasks/GR-FRONTEND-05-GREEN.json**: Located in `docs/tasks/GR-FRONTEND-05-GREEN.json`. GREEN: Implement Boss Raid UI & Sync
+- **docs/tasks/GR-FRONTEND-06-RED.json**: Located in `docs/tasks/GR-FRONTEND-06-RED.json`. RED: AdMob SDK Spike - Banner Placeholder
+- **docs/tasks/GR-FRONTEND-06-GREEN.json**: Located in `docs/tasks/GR-FRONTEND-06-GREEN.json`. GREEN: Implement AdMob Banner Placeholder
+- **backend/.gitignore**: Located in `backend/.gitignore`. Backend-specific git ignore rules
 
 ---
-*ISO 42010 Compliance Review: This document maintains clear traceability from business goals to technical components.*
+*Auto-generated by Harness Auto-Documentation Hook*

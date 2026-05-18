@@ -4,13 +4,13 @@
 This report tracks system quality based on automated telemetry data.
 
 ## 2. Maintainability Metrics
-- **Line Coverage (Avg):** 89.24%
-- **Total Tasks:** 37
-- **Retry Rate:** 110.81%
+- **Line Coverage (Avg):** 88.09%
+- **Total Tasks:** 39
+- **Retry Rate:** 123.08%
 
 ## 3. Reliability Metrics
-- **Success Rate:** 97.30%
-- **Avg Duration:** 46.59s
+- **Success Rate:** 100.00%
+- **Avg Duration:** 45.82s
 
 ## 4. Detailed Task Metrics
 | Task ID | Status | Coverage | Duration | Retries |
@@ -31,8 +31,10 @@ This report tracks system quality based on automated telemetry data.
 | GR-FRONTEND-06-RED | Verified | N/A | 13s | 3 |
 | H-INIT | Verified | 100.00% | 0s | 0 |
 | GR-FRONTEND-03-GREEN | Verified | 83.33% | 0s | 0 |
+| GR-BACKEND-13-RED | Verified | N/A | 33s | 7 |
+| GR-BACKEND-13-GREEN | Verified | 80.00% | 7s | 0 |
 | GR-BACKEND-12-RED | Verified | N/A | 0s | 0 |
-| GR-FRONTEND-06-GREEN | Todo | N/A | 0s | 0 |
+| GR-FRONTEND-06-GREEN | Verified | 80.00% | 23s | 0 |
 | GR-BACKEND-02-GREEN | Verified | 93.55% | 18s | 6 |
 | GR-FRONTEND-05-GREEN | Verified | 80.00% | 108s | 8 |
 | GR-BACKEND-10-GREEN | Verified | N/A | 0s | 0 |
