@@ -1,0 +1,32 @@
+{
+  "id": "GR-FRONTEND-06-GREEN",
+  "title": "GREEN: Implement AdMob Banner Placeholder",
+  "description": "Implement a placeholder for AdMob banner in MainNavigationScreen to reserve UI space.",
+  "status": "Verified",
+  "category": "Frontend",
+  "dependencies": [
+    "GR-FRONTEND-06-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && flutter test test/admob_test.dart",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-TDD-01",
+    "RULE-FE-TDD-03"
+  ],
+  "telemetry_hash": "ad9d2cdb9cd8fb3bd3708321746282d08034416fd1293745424d5164ffdaf12a",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 23,
+    "coverage": "80.00%"
+  }
+}

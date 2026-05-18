@@ -87,8 +87,23 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ],
         ),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+          ),
+          Container(
+            key: const Key('admob_banner_placeholder'),
+            height: 50,
+            width: double.infinity,
+            color: Colors.grey[200],
+            child: const Center(
+              child: Text('AdMob Banner Placeholder', style: TextStyle(color: Colors.grey)),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

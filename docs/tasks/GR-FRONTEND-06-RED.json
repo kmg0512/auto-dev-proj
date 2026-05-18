@@ -1,0 +1,29 @@
+{
+  "id": "GR-FRONTEND-06-RED",
+  "title": "RED: AdMob SDK Spike - Banner Placeholder",
+  "description": "Add AdMob banner placeholder to MainNavigationScreen and write failing tests to verify its presence.",
+  "status": "Verified",
+  "category": "Frontend",
+  "dependencies": [
+    "GR-FRONTEND-05-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && flutter test test/admob_test.dart",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-TDD-01"
+  ],
+  "telemetry_hash": "bfad0a01f99a33c3f1de750827ce4449c94ea74778ddaedfcc0d918db9a08ff0",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 3,
+    "duration_seconds": 13,
+    "coverage": "N/A"
+  }
+}

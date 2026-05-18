@@ -34,5 +34,7 @@
 | `docs/tasks/GR-FRONTEND-04-GREEN.json` | `docs/tasks/GR-FRONTEND-04-GREEN.json` | Task | GREEN: Social Chat UI |
 | `docs/tasks/GR-FRONTEND-05-RED.json` | `docs/tasks/GR-FRONTEND-05-RED.json` | Task | RED: Boss Raid UI failing tests |
 | `docs/tasks/GR-FRONTEND-05-GREEN.json` | `docs/tasks/GR-FRONTEND-05-GREEN.json` | Task | GREEN: Implement Boss Raid UI & Sync |
+| `docs/tasks/GR-FRONTEND-06-RED.json` | `docs/tasks/GR-FRONTEND-06-RED.json` | Task | RED: AdMob SDK Spike - Banner Placeholder |
+| `docs/tasks/GR-FRONTEND-06-GREEN.json` | `docs/tasks/GR-FRONTEND-06-GREEN.json` | Task | GREEN: Implement AdMob Banner Placeholder |
 |.gitignore | .gitignore | Config | Project-wide git ignore rules |
 | `backend/.gitignore` | `backend/.gitignore` | Config | Backend-specific git ignore rules |
