@@ -4,20 +4,23 @@
 This report tracks system quality based on automated telemetry data.
 
 ## 2. Maintainability Metrics
-- **Line Coverage (Avg):** 88.09%
-- **Total Tasks:** 39
-- **Retry Rate:** 123.08%
+- **Line Coverage (Avg):** 87.19%
+- **Total Tasks:** 43
+- **Retry Rate:** 116.28%
 
 ## 3. Reliability Metrics
 - **Success Rate:** 100.00%
-- **Avg Duration:** 45.82s
+- **Avg Duration:** 42.70s
 
 ## 4. Detailed Task Metrics
 | Task ID | Status | Coverage | Duration | Retries |
 |---------|--------|----------|----------|---------|
 | GR-BACKEND-05-GREEN | Verified | 83.33% | 10s | 0 |
+| GR-BACKEND-14-RED | Verified | N/A | 12s | 0 |
+| GR-BACKEND-15-RED | Verified | N/A | 5s | 0 |
 | GR-FRONTEND-01-GREEN | Verified | N/A | 0s | 0 |
 | GR-BACKEND-08-GREEN | Verified | 94.44% | 60s | 0 |
+| GR-BACKEND-14-GREEN | Verified | 80.00% | 12s | 1 |
 | GR-BACKEND-03-RED | Verified | N/A | 22s | 2 |
 | GR-BACKEND-02-RED | Verified | N/A | 0s | 0 |
 | GR-FRONTEND-04-GREEN | Verified | 85.0% | 300s | 0 |
@@ -44,6 +47,7 @@ This report tracks system quality based on automated telemetry data.
 | GR-FRONTEND-03-RED | Verified | N/A | 70s | 9 |
 | GR-BACKEND-04-GREEN | Verified | 100.00% | 600s | 0 |
 | GR-BACKEND-09-GREEN | Verified | 100.00% | 0s | 0 |
+| GR-BACKEND-15-GREEN | Verified | 80.00% | 20s | 1 |
 | GR-BACKEND-12-GREEN | Verified | N/A | 0s | 0 |
 | GR-BACKEND-10-RED | Verified | N/A | 0s | 0 |
 | GR-BACKEND-11-RED | Verified | N/A | 3s | 0 |
