@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-24-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Raid Status API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-24-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "38b5ec3a618447bc82cbe87c05ba2e4e2c5f53e6f317bdc63741b322ec4725ba",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 5,
+    "coverage": "80.00%"
+  }
+}

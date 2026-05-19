@@ -64,4 +64,17 @@ describe('GuildsController', () => {
       expect((service as any).getGuildMembers).toHaveBeenCalledWith(guildId);
     });
   });
+
+  describe('getRaidStatus', () => {
+    it('should return the current HP and status of the raid', async () => {
+      const guildId = 'guild-1';
+      const bossHp = 8000;
+      
+      (mockGuildsService as any).getGuildBossHp = jest.fn().mockResolvedValue(bossHp);
+
+      const result = await (controller as any).getRaidStatus(guildId);
+      expect(result).toEqual({ guildId, bossHp });
+      expect(service.getGuildBossHp).toHaveBeenCalledWith(guildId);
+    });
+  });
 });

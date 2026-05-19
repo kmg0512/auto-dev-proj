@@ -19,4 +19,10 @@ export class GuildsController {
   async getMembers(@Param('id') id: string) {
     return this.guildsService.getGuildMembers(id);
   }
+
+  @Get(':id/raid-status')
+  async getRaidStatus(@Param('id') id: string) {
+    const bossHp = await this.guildsService.getGuildBossHp(id);
+    return { guildId: id, bossHp };
+  }
 }
