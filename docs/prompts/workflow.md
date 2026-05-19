@@ -16,8 +16,9 @@ CRITICAL RULE: You are strictly forbidden from outputting raw code blocks, lengt
    - **<critic_review>**: You MUST identify at least 2 potential flaws, edge cases, or rule violations in the architect's plan before proceeding. Fix them internally.
 3. **Execution & Verify**:
    - Write files to disk using bash commands (e.g., `cat > filename`, `sed`, `echo`) within the command tags. Do not print code to the screen.
-   - Run tests: `harness test --mode [tdd-red|standard]` -> `harness commit`.
+   - Run tests: `harness test --mode [tdd-red|standard]`.
    - **Cycle Log Generation**: Consolidate the Architect Plan, Critic Review, and Execution Results into a single Markdown log file: `logs/cycle_[TASK_ID]_[PHASE].md`. This file MUST also include the final XML structure at the bottom.
+   - **Commit**: Execute `harness commit` ONLY after the cycle log has been successfully saved to the file system. This ensures the log is included in the commit.
 4. **Deadlock Prevention (RULE-GATE-02)**: If you get the same exact CLI error output OR fail the test 3 consecutive times, HALT and save ONLY the `<error_report>` XML to `logs/error_[TASK_ID].xml`.
 
 # [Format: Required Response]
