@@ -34,12 +34,32 @@ model Habit {
 }
 
 model Guild {
-  id        String   @id @default(uuid())
-  name      String   @unique
-  bossHp    Int      @default(10000)
+  id        String            @id @default(uuid())
+  name      String            @unique
+  bossHp    Int               @default(10000)
   members   User[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  invites   GuildInvitation[]
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+model GuildInvitation {
+  id        String           @id @default(uuid())
+  guildId   String
+  guild     Guild            @relation(fields: [guildId], references: [id])
+  userId    String
+  user      User             @relation(fields: [userId], references: [id])
+  status    InvitationStatus @default(PENDING)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@unique([guildId, userId])
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
 }
 
 model Quest {

@@ -17,6 +17,9 @@ describe('GuildsService', () => {
     user: {
       update: jest.fn(),
     },
+    guildInvitation: {
+      create: jest.fn(),
+    },
   };
 
   const mockRedisService = {
@@ -85,11 +88,17 @@ describe('GuildsService', () => {
       const invitedUserId = 'user-2';
       const invitation = { id: 'inv-1', guildId, userId: invitedUserId, status: 'PENDING' };
 
-      // This will fail because inviteUser is not implemented and Invitation model doesn't exist in Prisma mock yet
-      mockPrismaService.guildInvitation = { create: jest.fn().mockResolvedValue(invitation) };
+      mockPrismaService.guildInvitation.create.mockResolvedValue(invitation);
 
-      const result = await (service as any).inviteUser(guildId, invitedUserId);
+      const result = await service.inviteUser(guildId, invitedUserId);
       expect(result).toEqual(invitation);
+      expect(prisma.guildInvitation.create).toHaveBeenCalledWith({
+        data: {
+          guildId,
+          userId: invitedUserId,
+          status: 'PENDING',
+        },
+      });
     });
   });
 });

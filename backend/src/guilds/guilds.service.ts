@@ -30,6 +30,16 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async inviteUser(guildId: string, userId: string) {
+    return this.prisma.guildInvitation.create({
+      data: {
+        guildId,
+        userId,
+        status: 'PENDING',
+      },
+    });
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {
