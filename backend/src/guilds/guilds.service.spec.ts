@@ -101,4 +101,42 @@ describe('GuildsService', () => {
       });
     });
   });
+
+  describe('acceptInvitation', () => {
+    it('should update invitation status and join guild', async () => {
+      const invitationId = 'inv-1';
+      const guildId = 'guild-1';
+      const userId = 'user-2';
+      const invitation = { id: invitationId, guildId, userId, status: 'PENDING' };
+      const updatedInvitation = { ...invitation, status: 'ACCEPTED' };
+
+      mockPrismaService.guildInvitation.findUnique = jest.fn().mockResolvedValue(invitation);
+      mockPrismaService.guildInvitation.update = jest.fn().mockResolvedValue(updatedInvitation);
+      mockPrismaService.user.update.mockResolvedValue({ id: userId, guildId });
+
+      const result = await (service as any).acceptInvitation(invitationId, userId);
+      
+      expect(result.status).toBe('ACCEPTED');
+      expect(prisma.user.update).toHaveBeenCalledWith({
+        where: { id: userId },
+        data: { guildId },
+      });
+    });
+  });
+
+  describe('rejectInvitation', () => {
+    it('should update invitation status to REJECTED', async () => {
+      const invitationId = 'inv-1';
+      const userId = 'user-2';
+      const invitation = { id: invitationId, guildId: 'guild-1', userId, status: 'PENDING' };
+      const updatedInvitation = { ...invitation, status: 'REJECTED' };
+
+      mockPrismaService.guildInvitation.findUnique = jest.fn().mockResolvedValue(invitation);
+      mockPrismaService.guildInvitation.update = jest.fn().mockResolvedValue(updatedInvitation);
+
+      const result = await (service as any).rejectInvitation(invitationId, userId);
+      
+      expect(result.status).toBe('REJECTED');
+    });
+  });
 });
