@@ -12,6 +12,7 @@ describe('HabitsController', () => {
     findOne: jest.fn(),
     update: jest.fn(),
     remove: jest.fn(),
+    recoverStreak: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -83,6 +84,16 @@ describe('HabitsController', () => {
       const result = await controller.remove(id);
       expect(result).toEqual({ id, title: 'Deleted Habit' });
       expect(service.remove).toHaveBeenCalledWith(id);
+    });
+  });
+
+  describe('recoverStreak', () => {
+    it('should recover a user streak', async () => {
+      const userId = 'user-1';
+      mockHabitsService.recoverStreak.mockResolvedValue({ id: userId, streak: 6 });
+      const result = await (controller as any).recoverStreak(userId);
+      expect(result).toEqual({ id: userId, streak: 6 });
+      expect(service.recoverStreak).toHaveBeenCalledWith(userId);
     });
   });
 });

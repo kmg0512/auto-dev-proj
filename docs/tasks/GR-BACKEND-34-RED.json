@@ -1,0 +1,30 @@
+{
+  "id": "GR-BACKEND-34-RED",
+  "status": "Verified",
+  "description": "Implement Habit Streak Recovery failing tests in HabitsController.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-33-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/habits/habits.controller.spec.ts",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-BE-01",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ],
+  "telemetry_hash": "df6a874078e4f0e4e976196f6dc7311a6964fce0ec882608cff8837c4bf53dd2",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 3,
+    "coverage": "0.00% (RED-PHASE)"
+  }
+}

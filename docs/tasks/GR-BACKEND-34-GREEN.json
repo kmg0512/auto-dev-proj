@@ -1,0 +1,22 @@
+{
+  "id": "GR-BACKEND-34-GREEN",
+  "status": "Pending",
+  "description": "Implement Habit Streak Recovery endpoint in HabitsController.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-34-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd backend && npm run test src/habits/habits.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-BE-01",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ]
+}
