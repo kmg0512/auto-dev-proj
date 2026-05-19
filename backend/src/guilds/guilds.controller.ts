@@ -24,6 +24,11 @@ export class GuildsController {
     return this.guildsService.joinGuild(userId, id);
   }
 
+  @Post('leave')
+  async leave(@Body('userId') userId: string) {
+    return this.guildsService.leaveGuild(userId);
+  }
+
   @Get(':id/members')
   async getMembers(@Param('id') id: string) {
     return this.guildsService.getGuildMembers(id);

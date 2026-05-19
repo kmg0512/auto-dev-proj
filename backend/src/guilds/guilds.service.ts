@@ -89,6 +89,15 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async leaveGuild(userId: string) {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        guildId: null,
+      },
+    });
+  }
+
   async getPendingInvitations(userId: string) {
     return this.prisma.guildInvitation.findMany({
       where: {

@@ -116,4 +116,16 @@ describe('GuildsController', () => {
       expect((service as any).getPendingInvitations).toHaveBeenCalledWith(userId);
     });
   });
+
+  describe('leave', () => {
+    it('should allow a user to leave their guild', async () => {
+      const userId = 'user-1';
+      const result = { id: userId, guildId: null };
+      
+      mockGuildsService.leaveGuild = jest.fn().mockResolvedValue(result);
+
+      expect(await (controller as any).leave(userId)).toEqual(result);
+      expect((service as any).leaveGuild).toHaveBeenCalledWith(userId);
+    });
+  });
 });

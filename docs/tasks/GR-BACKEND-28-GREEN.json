@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-28-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Leave API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-28-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "65cf717166e0553d358371d466747c73747f67ecc1ceb974b1e34805cc43f34c",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 7,
+    "coverage": "80.00%"
+  }
+}
