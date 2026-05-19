@@ -50,7 +50,8 @@ describe('GuildsService', () => {
       const guildId = 'guild-1';
       const damage = 500;
       
-      // This will fail because GuildsService currently doesn't use RedisService
+      mockPrismaService.guild.findUnique.mockResolvedValue({ id: guildId, bossHp: 10000 });
+      
       await service.attackGuildBoss(guildId, damage);
       
       expect(mockRedisService.hincrby).toHaveBeenCalledWith(

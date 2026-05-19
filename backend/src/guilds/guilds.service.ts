@@ -1,12 +1,16 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../prisma/redis.service';
 
 @Injectable()
 export class GuildsService implements OnModuleInit {
-  private damageBuffer: Map<string, number> = new Map();
   private hpCache: Map<string, number> = new Map();
+  private readonly BUFFER_KEY = 'guild:damage_buffer';
 
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private redis: RedisService,
+  ) {}
 
   onModuleInit() {
     // Periodic flush every 5 seconds to optimize DB writes (Write-behind pattern)
@@ -27,7 +31,7 @@ export class GuildsService implements OnModuleInit {
   }
 
   async getGuildBossHp(guildId: string): Promise<number> {
-    // Check cache first
+    // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {
       return this.hpCache.get(guildId)!;
     }
@@ -46,14 +50,13 @@ export class GuildsService implements OnModuleInit {
   }
 
   async attackGuildBoss(guildId: string, damage: number): Promise<number> {
-    // Get current HP (from cache or DB)
+    // Get current HP
     let currentHp = await this.getGuildBossHp(guildId);
     
-    // Update buffer
-    const bufferedDamage = (this.damageBuffer.get(guildId) || 0) + damage;
-    this.damageBuffer.set(guildId, bufferedDamage);
+    // Update Redis buffer (Write-behind source)
+    await this.redis.hincrby(this.BUFFER_KEY, guildId, damage);
 
-    // Update HP cache
+    // Update local HP cache for immediate feedback
     const newHp = Math.max(0, currentHp - damage);
     this.hpCache.set(guildId, newHp);
 
@@ -61,11 +64,13 @@ export class GuildsService implements OnModuleInit {
   }
 
   async flushDamageBuffer() {
-    const guildsToUpdate = Array.from(this.damageBuffer.keys());
+    const buffer = await this.redis.hgetall(this.BUFFER_KEY);
+    const guildsToUpdate = Object.keys(buffer);
     
     for (const guildId of guildsToUpdate) {
-      const damage = this.damageBuffer.get(guildId);
+      const damage = parseInt(buffer[guildId], 10);
       if (damage && damage > 0) {
+        // Atomic decrement in DB
         await this.prisma.guild.update({
           where: { id: guildId },
           data: {
@@ -74,8 +79,10 @@ export class GuildsService implements OnModuleInit {
             },
           },
         });
-        // Clear buffer for this guild
-        this.damageBuffer.delete(guildId);
+        // Clear buffer for this guild in Redis
+        await this.redis.hdel(this.BUFFER_KEY, guildId);
+        // Evict local cache to force re-fetch from DB on next request
+        this.hpCache.delete(guildId);
       }
     }
   }
