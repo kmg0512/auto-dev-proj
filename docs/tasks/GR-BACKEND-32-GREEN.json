@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-32-GREEN",
+  "status": "Verified",
+  "description": "Implement UsersController and Profile API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-32-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/users/users.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "1003073700275ee97ee11e5211bea8fb7ad81338d6b6ce6eaa5db46994f16f29",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 3,
+    "coverage": "80.00%"
+  }
+}

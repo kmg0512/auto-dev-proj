@@ -1,0 +1,11 @@
+{
+  "id": "GR-BACKEND-32-RED",
+  "status": "Verified",
+  "description": "Implement UsersController and Profile API (RED phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-BACKEND-31-GREEN"],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/users/users.controller.spec.ts",
+    "expected_exit_code": 1
+  }
+}
