@@ -78,4 +78,18 @@ describe('GuildsService', () => {
       expect(mockRedisService.hdel).toHaveBeenCalledWith('guild:damage_buffer', guildId);
     });
   });
+
+  describe('inviteUser', () => {
+    it('should create a guild invitation', async () => {
+      const guildId = 'guild-1';
+      const invitedUserId = 'user-2';
+      const invitation = { id: 'inv-1', guildId, userId: invitedUserId, status: 'PENDING' };
+
+      // This will fail because inviteUser is not implemented and Invitation model doesn't exist in Prisma mock yet
+      mockPrismaService.guildInvitation = { create: jest.fn().mockResolvedValue(invitation) };
+
+      const result = await (service as any).inviteUser(guildId, invitedUserId);
+      expect(result).toEqual(invitation);
+    });
+  });
 });
