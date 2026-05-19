@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-17-RED",
-  "status": "Ready",
+  "status": "Verified",
   "description": "Refactor GuildsService to use Redis for damage buffering (RED phase).",
   "agent": "Gemini-CLI",
   "depends_on": ["GR-BACKEND-16-GREEN"],

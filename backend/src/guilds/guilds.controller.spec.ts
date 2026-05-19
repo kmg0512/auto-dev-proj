@@ -49,4 +49,19 @@ describe('GuildsController', () => {
       expect(service.joinGuild).toHaveBeenCalledWith(userId, id);
     });
   });
+
+  describe('getMembers', () => {
+    it('should return list of guild members', async () => {
+      const guildId = 'guild-1';
+      const members = [
+        { id: 'user-1', name: 'Alice', level: 5 },
+        { id: 'user-2', name: 'Bob', level: 3 },
+      ];
+      // This will fail because getGuildMembers is not implemented in mock and controller
+      (mockGuildsService as any).getGuildMembers = jest.fn().mockResolvedValue(members);
+
+      expect(await (controller as any).getMembers(guildId)).toEqual(members);
+      expect((service as any).getGuildMembers).toHaveBeenCalledWith(guildId);
+    });
+  });
 });

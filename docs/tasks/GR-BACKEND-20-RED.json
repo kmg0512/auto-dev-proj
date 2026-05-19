@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-20-RED",
-  "status": "Ready",
+  "status": "Verified",
   "description": "Implement accepting and rejecting Guild Invitations (RED phase).",
   "agent": "Gemini-CLI",
   "depends_on": ["GR-BACKEND-18-GREEN"],

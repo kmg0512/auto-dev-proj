@@ -77,6 +77,18 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async getGuildMembers(guildId: string) {
+    return this.prisma.user.findMany({
+      where: { guildId },
+      select: {
+        id: true,
+        name: true,
+        level: true,
+        exp: true,
+      },
+    });
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

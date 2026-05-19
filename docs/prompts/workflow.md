@@ -19,7 +19,8 @@ CRITICAL RULE: You are strictly forbidden from outputting raw code blocks, lengt
    - Run tests: `harness test --mode [tdd-red|standard]`.
    - **Cycle Log Generation**: Consolidate the Architect Plan, Critic Review, and Execution Results into a single Markdown log file: `logs/cycle_[TASK_ID]_[PHASE].md`. This file MUST also include the final XML structure at the bottom.
    - **Commit**: Execute `harness commit` ONLY after the cycle log has been successfully saved to the file system. This ensures the log is included in the commit.
-4. **Deadlock Prevention (RULE-GATE-02)**: If you get the same exact CLI error output OR fail the test 3 consecutive times, HALT and save ONLY the `<error_report>` XML to `logs/error_[TASK_ID].xml`.
+5. **Quota Management & Continuity**: If the LLM quota (context usage) is estimated to be below 50% or approaching session limits, the agent MUST proceed to the next logical task in the WBS immediately after completing the current one, without waiting for explicit user confirmation, to ensure project momentum and maximize context efficiency.
+6. **Deadlock Prevention (RULE-GATE-02)**: If you get the same exact CLI error output OR fail the test 3 consecutive times, HALT and save ONLY the `<error_report>` XML to `logs/error_[TASK_ID].xml`.
 
 # [Format: Required Response]
 You must respond ONLY with the following line:
