@@ -89,6 +89,22 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async getPendingInvitations(userId: string) {
+    return this.prisma.guildInvitation.findMany({
+      where: {
+        userId,
+        status: 'PENDING',
+      },
+      include: {
+        guild: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  }
+
   async resetGuildBoss(guildId: string, newHp: number) {
     const updatedGuild = await this.prisma.guild.update({
       where: { id: guildId },

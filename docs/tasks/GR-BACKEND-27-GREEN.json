@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-27-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Invitation List API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-27-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "7cdca4d84aea8936d6e71afdce41d12859a1d14eb6b338ddb4e6414cb4598fe2",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 4,
+    "coverage": "80.00%"
+  }
+}

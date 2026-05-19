@@ -102,4 +102,18 @@ describe('GuildsController', () => {
       expect((service as any).deleteGuild).toHaveBeenCalledWith(guildId);
     });
   });
+
+  describe('getInvitations', () => {
+    it('should return pending invitations for a user', async () => {
+      const userId = 'user-1';
+      const invitations = [
+        { id: 'inv-1', guildId: 'guild-1', status: 'PENDING' },
+      ];
+      
+      mockGuildsService.getPendingInvitations = jest.fn().mockResolvedValue(invitations);
+
+      expect(await (controller as any).getInvitations(userId)).toEqual(invitations);
+      expect((service as any).getPendingInvitations).toHaveBeenCalledWith(userId);
+    });
+  });
 });

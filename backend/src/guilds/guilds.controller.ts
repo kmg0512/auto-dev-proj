@@ -35,6 +35,11 @@ export class GuildsController {
     return { guildId: id, bossHp };
   }
 
+  @Get('invitations/:userId')
+  async getInvitations(@Param('userId') userId: string) {
+    return this.guildsService.getPendingInvitations(userId);
+  }
+
   @Patch(':id')
   async updateSettings(@Param('id') id: string, @Body() data: any) {
     return this.guildsService.updateGuild(id, data);
