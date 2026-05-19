@@ -1,0 +1,27 @@
+{
+  "id": "GR-BACKEND-16-RED",
+  "status": "Verified",
+  "description": "Create failing tests for OpenAI API integration via AiService.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-15-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/quests/quests.service.spec.ts",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-04",
+    "RULE-BE-TDD-01"
+  ],
+  "telemetry_hash": "59cf7381546b59c2ef222612d0a73d2a928958c8ecbd69cfe5801586c32b178a",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 5,
+    "coverage": "N/A"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "GR-BACKEND-16-GREEN",
+  "status": "Verified",
+  "description": "Implement OpenAI API integration via AiService and integrate it into QuestsService.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-16-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/quests/quests.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-04",
+    "RULE-BE-TDD-01",
+    "RULE-BE-TDD-03"
+  ],
+  "telemetry_hash": "bb2067c9dcae64934a65d0f7eeaeaf89391d8d2f1af63315bc0def70a11b2f7b",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 13,
+    "coverage": "80.00%"
+  }
+}

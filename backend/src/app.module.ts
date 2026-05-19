@@ -8,6 +8,7 @@ import { HabitsModule } from './habits/habits.module';
 import { GuildsModule } from './guilds/guilds.module';
 import { QuestsModule } from './quests/quests.module';
 import { InventoryModule } from './inventory/inventory.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { InventoryModule } from './inventory/inventory.module';
     GuildsModule,
     QuestsModule,
     InventoryModule,
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

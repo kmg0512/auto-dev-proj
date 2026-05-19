@@ -1,12 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RedisService } from '../prisma/redis.service';
+import { AiService } from '../ai/ai.service';
 
 @Injectable()
 export class QuestsService {
   constructor(
     private prisma: PrismaService,
     private redis: RedisService,
+    private ai: AiService,
   ) {}
 
   async generateQuestFromHabit(habitId: string) {
@@ -26,11 +28,8 @@ export class QuestsService {
     if (cachedQuest) {
       questContent = JSON.parse(cachedQuest);
     } else {
-      // AI transformation logic (To be integrated with OpenAI)
-      questContent = {
-        title: `The Quest for ${habit.title}`,
-        description: `In a realm far away, you must fulfill your destiny by: ${habit.title}.`,
-      };
+      // Call actual AI service
+      questContent = await this.ai.generateQuest(habit.title);
 
       // Cache the result for 1 hour
       await this.redis.set(cacheKey, JSON.stringify(questContent), 3600);
