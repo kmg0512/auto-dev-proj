@@ -150,4 +150,30 @@ describe('GuildsService', () => {
       expect(result.status).toBe('REJECTED');
     });
   });
+
+  describe('getGuildMembers', () => {
+    it('should return list of guild members', async () => {
+      const guildId = 'guild-1';
+      const members = [{ id: 'user-1', name: 'Alice', level: 5, exp: 100 }];
+      mockPrismaService.user.findMany = jest.fn().mockResolvedValue(members);
+
+      const result = await service.getGuildMembers(guildId);
+      expect(result).toEqual(members);
+    });
+  });
+
+  describe('resetGuildBoss', () => {
+    it('should reset boss HP and clear caches', async () => {
+      const guildId = 'guild-1';
+      const resetHp = 20000;
+      const updatedGuild = { id: guildId, bossHp: resetHp };
+
+      mockPrismaService.guild.update.mockResolvedValue(updatedGuild);
+
+      const result = await (service as any).resetGuildBoss(guildId, resetHp);
+      
+      expect(result.bossHp).toBe(resetHp);
+      expect(mockRedisService.hdel).toHaveBeenCalledWith('guild:damage_buffer', guildId);
+    });
+  });
 });

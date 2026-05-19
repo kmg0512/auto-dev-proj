@@ -89,6 +89,19 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async resetGuildBoss(guildId: string, newHp: number) {
+    const updatedGuild = await this.prisma.guild.update({
+      where: { id: guildId },
+      data: { bossHp: newHp },
+    });
+
+    // Clear buffer and local cache
+    await this.redis.hdel(this.BUFFER_KEY, guildId);
+    this.hpCache.delete(guildId);
+
+    return updatedGuild;
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

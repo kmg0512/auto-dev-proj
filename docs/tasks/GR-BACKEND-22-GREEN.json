@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-22-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Boss Reset and Initialization logic (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-22-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "143f1ae41c9ecd5bc1bfbd040b2fdb2511604da787f515996f1957da568ba7d7",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 6,
+    "coverage": "80.00%"
+  }
+}
