@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param, Put, Get } from '@nestjs/common';
+import { Controller, Post, Body, Param, Put, Get, Patch } from '@nestjs/common';
 import { GuildsService } from './guilds.service';
 
 @Controller('guilds')
@@ -24,5 +24,10 @@ export class GuildsController {
   async getRaidStatus(@Param('id') id: string) {
     const bossHp = await this.guildsService.getGuildBossHp(id);
     return { guildId: id, bossHp };
+  }
+
+  @Patch(':id')
+  async updateSettings(@Param('id') id: string, @Body() data: any) {
+    return this.guildsService.updateGuild(id, data);
   }
 }

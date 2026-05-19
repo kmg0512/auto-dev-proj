@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-25-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Settings Update API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-25-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "11994d0e77d66536df20a3764bb1f483d30f5c33568ccbe855e75523e6139182",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 6,
+    "coverage": "80.00%"
+  }
+}

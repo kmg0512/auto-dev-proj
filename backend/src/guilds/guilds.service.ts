@@ -113,6 +113,13 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async updateGuild(guildId: string, data: Partial<{ name: string }>) {
+    return this.prisma.guild.update({
+      where: { id: guildId },
+      data,
+    });
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

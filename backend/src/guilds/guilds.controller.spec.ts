@@ -77,4 +77,17 @@ describe('GuildsController', () => {
       expect(service.getGuildBossHp).toHaveBeenCalledWith(guildId);
     });
   });
+
+  describe('updateSettings', () => {
+    it('should update guild settings', async () => {
+      const guildId = 'guild-1';
+      const settings = { name: 'New Guild Name' };
+      const result = { id: guildId, ...settings };
+      
+      mockGuildsService.updateGuild = jest.fn().mockResolvedValue(result);
+
+      expect(await (controller as any).updateSettings(guildId, settings)).toEqual(result);
+      expect((service as any).updateGuild).toHaveBeenCalledWith(guildId, settings);
+    });
+  });
 });
