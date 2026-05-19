@@ -37,4 +37,17 @@ describe('UsersController', () => {
       expect(await controller.getProfile(userId)).toEqual(result);
     });
   });
+
+  describe('getLeaderboard', () => {
+    it('should return top users by level and exp', async () => {
+      const users = [
+        { id: '1', name: 'Alice', level: 10, exp: 50 },
+        { id: '2', name: 'Bob', level: 9, exp: 90 },
+      ];
+      mockUsersService.getTopUsers = jest.fn().mockResolvedValue(users);
+
+      expect(await controller.getLeaderboard('10')).toEqual(users);
+      expect(mockUsersService.getTopUsers).toHaveBeenCalledWith(10);
+    });
+  });
 });

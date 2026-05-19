@@ -62,4 +62,14 @@ export class UsersService {
       },
     });
   }
+
+  async getTopUsers(limit: number = 10): Promise<User[]> {
+    return this.prisma.user.findMany({
+      take: limit,
+      orderBy: [
+        { level: 'desc' },
+        { exp: 'desc' },
+      ],
+    });
+  }
 }

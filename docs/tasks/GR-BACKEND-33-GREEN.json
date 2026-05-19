@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-33-GREEN",
+  "status": "Verified",
+  "description": "Implement Global Leaderboard API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-33-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/users/users.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "a33e209d438ec18aa50f188d0bf0486dba8ff654080754626fa7b96d6cf89bdb",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 2,
+    "coverage": "80.00%"
+  }
+}
