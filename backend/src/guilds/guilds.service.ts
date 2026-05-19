@@ -98,6 +98,17 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async searchGuilds(query: string) {
+    return this.prisma.guild.findMany({
+      where: {
+        name: {
+          contains: query,
+          mode: 'insensitive',
+        },
+      },
+    });
+  }
+
   async getPendingInvitations(userId: string) {
     return this.prisma.guildInvitation.findMany({
       where: {

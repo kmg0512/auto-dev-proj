@@ -7,6 +7,7 @@ import {
   Get,
   Patch,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { GuildsService } from './guilds.service';
 
@@ -27,6 +28,11 @@ export class GuildsController {
   @Post('leave')
   async leave(@Body('userId') userId: string) {
     return this.guildsService.leaveGuild(userId);
+  }
+
+  @Get('search')
+  async search(@Query('q') query: string) {
+    return this.guildsService.searchGuilds(query);
   }
 
   @Get(':id/members')

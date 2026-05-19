@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-29-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Search/Discovery API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-29-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "55269869e871d5792bb3e1fef4d92904c23f6bf9a285e80c9feeb93fbbc63f6e",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 5,
+    "coverage": "80.00%"
+  }
+}

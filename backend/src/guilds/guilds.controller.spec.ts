@@ -128,4 +128,16 @@ describe('GuildsController', () => {
       expect((service as any).leaveGuild).toHaveBeenCalledWith(userId);
     });
   });
+
+  describe('search', () => {
+    it('should return list of guilds matching the query', async () => {
+      const query = 'Dragon';
+      const guilds = [{ id: '1', name: 'Dragon Slayers' }];
+      
+      mockGuildsService.searchGuilds = jest.fn().mockResolvedValue(guilds);
+
+      expect(await (controller as any).search(query)).toEqual(guilds);
+      expect((service as any).searchGuilds).toHaveBeenCalledWith(query);
+    });
+  });
 });
