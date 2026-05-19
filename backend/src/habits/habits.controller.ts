@@ -30,4 +30,9 @@ export class HabitsController {
   remove(@Param('id') id: string) {
     return this.habitsService.remove(id);
   }
+  
+  @Post(':userId/recover-streak')
+  recoverStreak(@Param('userId') userId: string) {
+    return this.habitsService.recoverStreak(userId);
+  }
 }
