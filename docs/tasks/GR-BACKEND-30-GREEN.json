@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-30-GREEN",
+  "status": "Verified",
+  "description": "Implement 'Use Item' logic in InventoryService (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-30-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/inventory/inventory.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "51e644e329c743affa13ebc659307d01779650d089efcb28bf839a91a3e216eb",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 3,
+    "coverage": "80.00%"
+  }
+}

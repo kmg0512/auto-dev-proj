@@ -1,0 +1,11 @@
+{
+  "id": "GR-BACKEND-30-RED",
+  "status": "Verified",
+  "description": "Implement 'Use Item' logic in InventoryService (RED phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": ["GR-BACKEND-29-GREEN"],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/inventory/inventory.service.spec.ts",
+    "expected_exit_code": 1
+  }
+}

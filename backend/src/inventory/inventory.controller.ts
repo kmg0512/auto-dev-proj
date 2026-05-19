@@ -18,4 +18,9 @@ export class InventoryController {
   async get(@Param('userId') userId: string) {
     return this.inventoryService.getUserInventory(userId);
   }
+
+  @Post(':id/use')
+  async use(@Param('id') id: string) {
+    return this.inventoryService.useItem(id);
+  }
 }

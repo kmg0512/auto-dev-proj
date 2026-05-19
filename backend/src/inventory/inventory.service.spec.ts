@@ -61,4 +61,40 @@ describe('InventoryService', () => {
       });
     });
   });
+
+  describe('useItem', () => {
+    it('should decrease item quantity', async () => {
+      const id = 'inv-1';
+      const item = { id, itemName: 'Potion', quantity: 2 };
+      const updatedItem = { ...item, quantity: 1 };
+
+      mockPrismaService.inventory.findUnique.mockResolvedValue(item);
+      mockPrismaService.inventory.update.mockResolvedValue(updatedItem);
+
+      const result = await service.useItem(id);
+      expect(result.quantity).toBe(1);
+      expect(prisma.inventory.update).toHaveBeenCalledWith({
+        where: { id },
+        data: { quantity: { decrement: 1 } },
+      });
+    });
+
+    it('should delete item if quantity reaches 0', async () => {
+      const id = 'inv-2';
+      const item = { id, itemName: 'Potion', quantity: 1 };
+
+      mockPrismaService.inventory.findUnique.mockResolvedValue(item);
+      mockPrismaService.inventory.delete.mockResolvedValue({ id });
+
+      const result = await service.useItem(id);
+      expect(result).toEqual({ success: true, deleted: true });
+      expect(prisma.inventory.delete).toHaveBeenCalledWith({ where: { id } });
+    });
+
+    it('should throw error if item not found', async () => {
+      mockPrismaService.inventory.findUnique.mockResolvedValue(null);
+
+      await expect(service.useItem('invalid')).rejects.toThrow('Item not found');
+    });
+  });
 });
