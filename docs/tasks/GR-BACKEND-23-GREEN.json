@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-23-GREEN",
+  "status": "Verified",
+  "description": "Implement Raid Reward distribution logic (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-23-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "98b94810169290b8a1da2e101b844986f4c5dd268a78ca005c310aa791635d0d",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 9,
+    "coverage": "80.00%"
+  }
+}

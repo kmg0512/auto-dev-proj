@@ -102,6 +102,17 @@ export class GuildsService implements OnModuleInit {
     return updatedGuild;
   }
 
+  async distributeRaidRewards(guildId: string, exp: number) {
+    return this.prisma.user.updateMany({
+      where: { guildId },
+      data: {
+        exp: {
+          increment: exp,
+        },
+      },
+    });
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

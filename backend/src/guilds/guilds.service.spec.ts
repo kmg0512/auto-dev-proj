@@ -176,4 +176,26 @@ describe('GuildsService', () => {
       expect(mockRedisService.hdel).toHaveBeenCalledWith('guild:damage_buffer', guildId);
     });
   });
+
+  describe('distributeRaidRewards', () => {
+    it('should distribute EXP to all guild members', async () => {
+      const guildId = 'guild-1';
+      const rewardExp = 500;
+      const members = [
+        { id: 'user-1', name: 'Alice' },
+        { id: 'user-2', name: 'Bob' },
+      ];
+
+      mockPrismaService.user.findMany.mockResolvedValue(members);
+      mockPrismaService.user.updateMany = jest.fn().mockResolvedValue({ count: 2 });
+
+      const result = await (service as any).distributeRaidRewards(guildId, rewardExp);
+      
+      expect(result.count).toBe(2);
+      expect(prisma.user.updateMany).toHaveBeenCalledWith({
+        where: { guildId },
+        data: { exp: { increment: rewardExp } },
+      });
+    });
+  });
 });
