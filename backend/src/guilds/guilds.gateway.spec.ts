@@ -80,10 +80,12 @@ describe('GuildsGateway', () => {
       });
     });
 
-    it('should broadcast bossDefeated when HP reaches 0', async () => {
+    it('should broadcast bossDefeated and distribute rewards when HP reaches 0', async () => {
       const attackData = { guildId: 'guild-1', damage: 10000, userId: 'user-1' };
       const newHp = 0;
       mockGuildsService.attackGuildBoss.mockResolvedValue(newHp);
+      // distributeRaidRewards needs to be in the mock
+      (mockGuildsService as any).distributeRaidRewards = jest.fn().mockResolvedValue({ count: 1 });
 
       await gateway.handleAttackBoss(attackData);
       
@@ -91,6 +93,7 @@ describe('GuildsGateway', () => {
         guildId: attackData.guildId,
         defeatedBy: attackData.userId,
       });
+      expect(service.distributeRaidRewards).toHaveBeenCalledWith(attackData.guildId, 1000);
     });
   });
 

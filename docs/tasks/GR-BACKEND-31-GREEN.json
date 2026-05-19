@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-31-GREEN",
+  "status": "Verified",
+  "description": "Implement automated reward distribution on boss defeat in GuildsGateway (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-31-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.gateway.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "bad581e2ab145d53c47a2594bb2063251a11442ad697bc9a9b0cfbebd3099047",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 1,
+    "coverage": "80.00%"
+  }
+}

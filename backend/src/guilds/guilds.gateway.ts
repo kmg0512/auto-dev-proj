@@ -73,6 +73,8 @@ export class GuildsGateway {
     });
 
     if (newHp <= 0) {
+      await this.guildsService.distributeRaidRewards(data.guildId, 1000);
+
       this.server.to(`guild_raid_${data.guildId}`).emit('bossDefeated', {
         guildId: data.guildId,
         defeatedBy: data.userId,
