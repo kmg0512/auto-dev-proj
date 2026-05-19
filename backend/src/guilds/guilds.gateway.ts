@@ -28,6 +28,32 @@ export class GuildsGateway {
     return { event: 'joinedRaid', data: guildId };
   }
 
+  @SubscribeMessage('joinGuildChat')
+  handleJoinChat(
+    @MessageBody() guildId: string,
+    @ConnectedSocket() client: Socket,
+  ) {
+    client.join(`guild_chat_${guildId}`);
+    return { event: 'joinedChat', data: guildId };
+  }
+
+  @SubscribeMessage('chatMessage')
+  handleChatMessage(
+    @MessageBody() data: { guildId: string; message: string; userId: string; userName: string },
+  ) {
+    const chatRoom = `guild_chat_${data.guildId}`;
+    const payload = {
+      userId: data.userId,
+      userName: data.userName,
+      message: data.message,
+      timestamp: new Date().toISOString(),
+    };
+
+    this.server.to(chatRoom).emit('chatMessage', payload);
+
+    return { event: 'messageSent', data: data.message };
+  }
+
   @SubscribeMessage('attackBoss')
   async handleAttackBoss(
     @MessageBody() data: { guildId: string; damage: number; userId: string },
