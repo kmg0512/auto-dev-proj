@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-20-GREEN",
+  "status": "Verified",
+  "description": "Implement accepting and rejecting Guild Invitations (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-20-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.service.spec.ts",
+    "expected_exit_code": 0
+  },
+  "metrics": {
+    "tokens_used": 1500,
+    "retry_count": 0,
+    "duration_seconds": 128,
+    "coverage": "80.00%"
+  },
+  "telemetry_hash": "d18b1c2ef41d0ce292f3580aa610c9663ecd20698d145a1645e68b9c705dd907",
+  "verification_mode": "standard"
+}

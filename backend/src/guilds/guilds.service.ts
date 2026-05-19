@@ -40,6 +40,43 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async acceptInvitation(invitationId: string, userId: string) {
+    const invitation = await this.prisma.guildInvitation.findUnique({
+      where: { id: invitationId },
+    });
+
+    if (!invitation || invitation.userId !== userId || invitation.status !== 'PENDING') {
+      throw new Error('Invalid invitation');
+    }
+
+    const updatedInvitation = await this.prisma.guildInvitation.update({
+      where: { id: invitationId },
+      data: { status: 'ACCEPTED' },
+    });
+
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: { guildId: invitation.guildId },
+    });
+
+    return updatedInvitation;
+  }
+
+  async rejectInvitation(invitationId: string, userId: string) {
+    const invitation = await this.prisma.guildInvitation.findUnique({
+      where: { id: invitationId },
+    });
+
+    if (!invitation || invitation.userId !== userId || invitation.status !== 'PENDING') {
+      throw new Error('Invalid invitation');
+    }
+
+    return this.prisma.guildInvitation.update({
+      where: { id: invitationId },
+      data: { status: 'REJECTED' },
+    });
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

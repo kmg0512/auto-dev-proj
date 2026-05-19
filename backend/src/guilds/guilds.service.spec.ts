@@ -19,6 +19,8 @@ describe('GuildsService', () => {
     },
     guildInvitation: {
       create: jest.fn(),
+      findUnique: jest.fn(),
+      update: jest.fn(),
     },
   };
 
@@ -110,17 +112,26 @@ describe('GuildsService', () => {
       const invitation = { id: invitationId, guildId, userId, status: 'PENDING' };
       const updatedInvitation = { ...invitation, status: 'ACCEPTED' };
 
-      mockPrismaService.guildInvitation.findUnique = jest.fn().mockResolvedValue(invitation);
-      mockPrismaService.guildInvitation.update = jest.fn().mockResolvedValue(updatedInvitation);
+      mockPrismaService.guildInvitation.findUnique.mockResolvedValue(invitation);
+      mockPrismaService.guildInvitation.update.mockResolvedValue(updatedInvitation);
       mockPrismaService.user.update.mockResolvedValue({ id: userId, guildId });
 
-      const result = await (service as any).acceptInvitation(invitationId, userId);
+      const result = await service.acceptInvitation(invitationId, userId);
       
       expect(result.status).toBe('ACCEPTED');
       expect(prisma.user.update).toHaveBeenCalledWith({
         where: { id: userId },
         data: { guildId },
       });
+    });
+
+    it('should throw error if invitation is invalid', async () => {
+      const invitationId = 'inv-1';
+      const userId = 'user-2';
+      
+      mockPrismaService.guildInvitation.findUnique.mockResolvedValue(null);
+
+      await expect(service.acceptInvitation(invitationId, userId)).rejects.toThrow('Invalid invitation');
     });
   });
 
@@ -131,10 +142,10 @@ describe('GuildsService', () => {
       const invitation = { id: invitationId, guildId: 'guild-1', userId, status: 'PENDING' };
       const updatedInvitation = { ...invitation, status: 'REJECTED' };
 
-      mockPrismaService.guildInvitation.findUnique = jest.fn().mockResolvedValue(invitation);
-      mockPrismaService.guildInvitation.update = jest.fn().mockResolvedValue(updatedInvitation);
+      mockPrismaService.guildInvitation.findUnique.mockResolvedValue(invitation);
+      mockPrismaService.guildInvitation.update.mockResolvedValue(updatedInvitation);
 
-      const result = await (service as any).rejectInvitation(invitationId, userId);
+      const result = await service.rejectInvitation(invitationId, userId);
       
       expect(result.status).toBe('REJECTED');
     });
