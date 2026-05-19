@@ -120,6 +120,13 @@ export class GuildsService implements OnModuleInit {
     });
   }
 
+  async deleteGuild(guildId: string) {
+    await this.prisma.guild.delete({
+      where: { id: guildId },
+    });
+    return { success: true };
+  }
+
   async getGuildBossHp(guildId: string): Promise<number> {
     // Check local cache first for low-latency feedback
     if (this.hpCache.has(guildId)) {

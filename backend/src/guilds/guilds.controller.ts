@@ -1,4 +1,13 @@
-import { Controller, Post, Body, Param, Put, Get, Patch } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Param,
+  Put,
+  Get,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { GuildsService } from './guilds.service';
 
 @Controller('guilds')
@@ -29,5 +38,10 @@ export class GuildsController {
   @Patch(':id')
   async updateSettings(@Param('id') id: string, @Body() data: any) {
     return this.guildsService.updateGuild(id, data);
+  }
+
+  @Delete(':id')
+  async disband(@Param('id') id: string) {
+    return this.guildsService.deleteGuild(id);
   }
 }

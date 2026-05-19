@@ -1,0 +1,21 @@
+{
+  "id": "GR-BACKEND-26-GREEN",
+  "status": "Verified",
+  "description": "Implement Guild Delete/Disband API (GREEN phase).",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-26-RED"
+  ],
+  "mechanical_dod": {
+    "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
+    "expected_exit_code": 0
+  },
+  "telemetry_hash": "bec93c723d813c01c90aa3ab3d24241d51549b0d58a58a1ab69176e65ce9b0ff",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 0,
+    "duration_seconds": 4,
+    "coverage": "80.00%"
+  }
+}

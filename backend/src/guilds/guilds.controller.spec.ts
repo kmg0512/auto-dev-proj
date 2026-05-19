@@ -90,4 +90,16 @@ describe('GuildsController', () => {
       expect((service as any).updateGuild).toHaveBeenCalledWith(guildId, settings);
     });
   });
+
+  describe('disband', () => {
+    it('should delete a guild', async () => {
+      const guildId = 'guild-1';
+      const result = { success: true };
+      
+      mockGuildsService.deleteGuild = jest.fn().mockResolvedValue(result);
+
+      expect(await (controller as any).disband(guildId)).toEqual(result);
+      expect((service as any).deleteGuild).toHaveBeenCalledWith(guildId);
+    });
+  });
 });
