@@ -93,4 +93,21 @@ describe('GuildsGateway', () => {
       });
     });
   });
+
+  describe('handleChatMessage', () => {
+    it('should broadcast message to the guild room', () => {
+      const chatData = { guildId: 'guild-1', message: 'Hello Guild!', userId: 'user-1', userName: 'Alice' };
+      
+      const result = (gateway as any).handleChatMessage(chatData);
+      
+      expect(mockServer.to).toHaveBeenCalledWith(`guild_chat_${chatData.guildId}`);
+      expect(mockServer.emit).toHaveBeenCalledWith('chatMessage', {
+        userId: chatData.userId,
+        userName: chatData.userName,
+        message: chatData.message,
+        timestamp: expect.any(String),
+      });
+      expect(result).toEqual({ event: 'messageSent', data: chatData.message });
+    });
+  });
 });
