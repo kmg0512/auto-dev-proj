@@ -1,0 +1,31 @@
+{
+  "id": "GR-FRONTEND-103-RED",
+  "status": "Verified",
+  "description": "Implement Reward Ads Integration failing widget test.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-07-GREEN",
+    "GR-BACKEND-34-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/admob_reward_test.dart",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-TDD-01"
+  ],
+  "telemetry_hash": "e65ebf0c018269d8c36dd4f84acc98815a4ca3b292abfe1ac2ec2be0e643185f",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 20,
+    "coverage": "0.00% (RED-PHASE)"
+  }
+}

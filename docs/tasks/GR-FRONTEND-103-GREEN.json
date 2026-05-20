@@ -1,0 +1,22 @@
+{
+  "id": "GR-FRONTEND-103-GREEN",
+  "status": "Pending",
+  "description": "Implement Reward Ads and Streak Recovery integration.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-103-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/admob_reward_test.dart",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-TDD-01"
+  ]
+}
