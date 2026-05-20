@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'dart:io';
+import 'package:frontend/services/admob_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
+  AdMobService.loadRewardedAd();
   runApp(const GuildRoutineApp());
 }
 
@@ -37,7 +40,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
 
   List<Widget> get _widgetOptions => <Widget>[
-    const HomeScreen(),
+    HomeScreen(isTestMode: widget.isTestMode),
     const CharacterScreen(),
     const LeaderboardScreen(),
     const InventoryScreen(),
@@ -126,7 +129,41 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final bool isTestMode;
+  const HomeScreen({super.key, this.isTestMode = false});
+
+  void _recoverStreak(BuildContext context) {
+    if (isTestMode) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Test Mode: Streak Recovered!')),
+      );
+      return;
+    }
+
+    AdMobService.showRewardedAd(
+      onRewardEarned: (reward) async {
+        try {
+          final client = HttpClient();
+          final request = await client.postUrl(Uri.parse('http://localhost:3000/habits/user1/recover-streak'));
+          final response = await request.close();
+          if (response.statusCode == 201 || response.statusCode == 200) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Streak Recovered Successfully!')),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Failed to recover streak.')),
+            );
+          }
+        } catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: $e')),
+          );
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,6 +176,11 @@ class HomeScreen extends StatelessWidget {
             const Text('Home Screen', style: TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(onPressed: () {}, child: const Text('Refresh')),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => _recoverStreak(context),
+              child: const Text('Recover Streak'),
+            ),
           ],
         ),
       ),
