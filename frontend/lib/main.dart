@@ -110,6 +110,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Character'),
+          BottomNavigationBarItem(icon: Icon(Icons.leaderboard), label: 'Leaderboard'),
           BottomNavigationBarItem(icon: Icon(Icons.inventory), label: 'Inventory'),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
           BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Guild'),
@@ -159,6 +160,39 @@ class CharacterScreen extends StatelessWidget {
             const Text('Character Screen', style: TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(onPressed: () {}, child: const Text('Level Up')),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LeaderboardScreen extends StatelessWidget {
+  const LeaderboardScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Leaderboard')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.leaderboard, size: 100, color: Colors.orange),
+            const Text('Leaderboard Screen', style: TextStyle(fontSize: 24)),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(child: Text('${index + 1}')),
+                    title: Text('User ${index + 1}'),
+                    subtitle: const Text('Level 10'),
+                    trailing: const Text('1000 EXP'),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

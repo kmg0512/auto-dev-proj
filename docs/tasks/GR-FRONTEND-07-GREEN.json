@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-07-GREEN",
-  "status": "Pending",
+  "status": "Verified",
   "description": "Implement Leaderboard UI and navigation.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -18,5 +18,13 @@
     "RULE-FE-01",
     "RULE-FE-02",
     "RULE-FE-TDD-01"
-  ]
+  ],
+  "telemetry_hash": "4d3213f4a4c8e77eb5d9419642fe992bc5b4eb088fa41fad2bf5d6627517828a",
+  "verification_mode": "standard",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 2,
+    "duration_seconds": 72,
+    "coverage": "80.69%"
+  }
 }
