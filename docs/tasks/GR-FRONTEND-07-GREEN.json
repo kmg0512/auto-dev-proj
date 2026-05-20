@@ -1,0 +1,22 @@
+{
+  "id": "GR-FRONTEND-07-GREEN",
+  "status": "Pending",
+  "description": "Implement Leaderboard UI and navigation.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-07-RED"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/leaderboard_test.dart",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-TDD-01"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "GR-FRONTEND-07-RED",
+  "status": "Verified",
+  "description": "Create Leaderboard UI failing widget test.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-BACKEND-33-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "cd frontend && ~/develop/flutter/bin/flutter test test/leaderboard_test.dart",
+    "expected_exit_code": 1
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-02",
+    "RULE-INV-03",
+    "RULE-INV-04",
+    "RULE-FE-01",
+    "RULE-FE-02",
+    "RULE-FE-TDD-01"
+  ],
+  "telemetry_hash": "ff9400b44636a79e27063b08b9291d645c5f611f5758f74fe26d57ac939217f4",
+  "verification_mode": "tdd-red",
+  "metrics": {
+    "tokens_used": 0,
+    "retry_count": 1,
+    "duration_seconds": 15,
+    "coverage": "0.00% (RED-PHASE)"
+  }
+}

@@ -39,6 +39,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   List<Widget> get _widgetOptions => <Widget>[
     const HomeScreen(),
     const CharacterScreen(),
+    const LeaderboardScreen(),
     const InventoryScreen(),
     const AboutScreen(),
     GuildScreen(isTestMode: widget.isTestMode),
