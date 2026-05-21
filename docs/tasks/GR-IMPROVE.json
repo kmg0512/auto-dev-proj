@@ -1,0 +1,18 @@
+{
+  "id": "GR-IMPROVE",
+  "status": "Ready",
+  "description": "Analyze Gemini shared link and plan project improvements.",
+  "agent": "Gemini-CLI",
+  "depends_on": [
+    "GR-FRONTEND-103-GREEN"
+  ],
+  "mechanical_dod": {
+    "command": "ls logs/cycle_GR-IMPROVE_REFACTOR.md",
+    "expected_exit_code": 0
+  },
+  "governance_mapping": [
+    "RULE-INV-01",
+    "RULE-INV-03",
+    "RULE-INV-04"
+  ]
+}
