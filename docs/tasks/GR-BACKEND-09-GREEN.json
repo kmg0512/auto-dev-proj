@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-09-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement GuildsGateway for real-time boss raid synchronization.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -29,5 +29,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

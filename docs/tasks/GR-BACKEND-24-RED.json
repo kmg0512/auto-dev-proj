@@ -1,11 +1,14 @@
 {
   "id": "GR-BACKEND-24-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild Raid Status API (RED phase).",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-BACKEND-23-GREEN"],
+  "depends_on": [
+    "GR-BACKEND-23-GREEN"
+  ],
   "mechanical_dod": {
     "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.controller.spec.ts",
     "expected_exit_code": 1
-  }
+  },
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-28-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild Leave API (GREEN phase).",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -17,5 +17,6 @@
     "retry_count": 0,
     "duration_seconds": 7,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

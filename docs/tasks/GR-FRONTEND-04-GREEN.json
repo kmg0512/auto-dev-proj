@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-04-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "verification_mode": "standard",
   "metrics": {
     "tokens_used": 0,
@@ -29,5 +29,6 @@
     "RULE-FE-03",
     "RULE-FE-TDD-01",
     "RULE-FE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

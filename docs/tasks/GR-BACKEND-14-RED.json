@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-14-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create failing tests for completeHabit with EXP and Boss damage logic.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -23,5 +23,6 @@
     "retry_count": 0,
     "duration_seconds": 12,
     "coverage": "N/A"
-  }
+  },
+  "approved": true
 }

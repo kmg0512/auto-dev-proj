@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-05-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create failing widget tests for Boss HP and Attack Boss button.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -29,5 +29,6 @@
     "RULE-FE-02",
     "RULE-FE-03",
     "RULE-FE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

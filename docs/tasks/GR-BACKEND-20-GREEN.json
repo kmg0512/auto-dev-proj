@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-20-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement accepting and rejecting Guild Invitations (GREEN phase).",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -17,5 +17,6 @@
     "coverage": "80.00%"
   },
   "telemetry_hash": "d18b1c2ef41d0ce292f3580aa610c9663ecd20698d145a1645e68b9c705dd907",
-  "verification_mode": "standard"
+  "verification_mode": "standard",
+  "approved": true
 }

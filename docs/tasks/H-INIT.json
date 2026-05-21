@@ -1,6 +1,6 @@
 {
   "id": "H-INIT",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Initialize the harness protocol and directory structure.",
   "agent": "Gemini-CLI",
   "depends_on": [],
@@ -14,7 +14,7 @@
     "duration_seconds": 0,
     "coverage": "100.00%"
   },
-  "approved": false,
+  "approved": true,
   "telemetry_hash": "manual-init",
   "delta_note": "Initial setup completed.",
   "governance_mapping": [

@@ -2,7 +2,7 @@
   "id": "GR-FRONTEND-06-RED",
   "title": "RED: AdMob SDK Spike - Banner Placeholder",
   "description": "Add AdMob banner placeholder to MainNavigationScreen and write failing tests to verify its presence.",
-  "status": "Verified",
+  "status": "Approved",
   "category": "Frontend",
   "dependencies": [
     "GR-FRONTEND-05-GREEN"
@@ -25,5 +25,6 @@
     "retry_count": 3,
     "duration_seconds": 13,
     "coverage": "N/A"
-  }
+  },
+  "approved": true
 }

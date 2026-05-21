@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-02-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement UI Skeleton with BottomNavigationBar.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -30,5 +30,6 @@
     "RULE-FE-03",
     "RULE-FE-TDD-01",
     "RULE-FE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

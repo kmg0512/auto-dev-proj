@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-26-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild Delete/Disband API (GREEN phase).",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -17,5 +17,6 @@
     "retry_count": 0,
     "duration_seconds": 4,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

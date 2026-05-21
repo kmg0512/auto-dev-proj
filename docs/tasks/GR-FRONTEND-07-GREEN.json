@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-07-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Leaderboard UI and navigation.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -26,5 +26,6 @@
     "retry_count": 2,
     "duration_seconds": 72,
     "coverage": "80.69%"
-  }
+  },
+  "approved": true
 }

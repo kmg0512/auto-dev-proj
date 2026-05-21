@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-01-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement PrismaService to pass tests.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -22,5 +22,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-07-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create Leaderboard UI failing widget test.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -26,5 +26,6 @@
     "retry_count": 1,
     "duration_seconds": 15,
     "coverage": "0.00% (RED-PHASE)"
-  }
+  },
+  "approved": true
 }

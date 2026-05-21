@@ -2,7 +2,7 @@
   "id": "GR-BACKEND-12-RED",
   "title": "RED: Redis Write-behind for Boss HP",
   "description": "Create failing tests for buffered Boss HP updates using a Write-behind pattern in GuildsService.",
-  "status": "Verified",
+  "status": "Approved",
   "category": "Backend",
   "dependencies": [
     "GR-BACKEND-11-GREEN"
@@ -20,5 +20,6 @@
     "RULE-BE-02",
     "RULE-BE-03",
     "RULE-BE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

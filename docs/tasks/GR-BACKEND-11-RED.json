@@ -2,7 +2,7 @@
   "id": "GR-BACKEND-11-RED",
   "title": "RED: WebSocket real-time Boss HP Sync",
   "description": "Write failing tests for real-time Guild Raid Boss HP synchronization via WebSockets.",
-  "status": "Verified",
+  "status": "Approved",
   "category": "Backend",
   "dependencies": [
     "GR-BACKEND-10-GREEN"
@@ -28,5 +28,6 @@
     "RULE-BE-02",
     "RULE-BE-03",
     "RULE-BE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

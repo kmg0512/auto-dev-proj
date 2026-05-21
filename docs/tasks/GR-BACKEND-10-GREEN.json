@@ -2,7 +2,7 @@
   "id": "GR-BACKEND-10-GREEN",
   "title": "GREEN: Implement Guild Raid Boss HP Management",
   "description": "Implement the logic to update and retrieve Guild Raid Boss HP in the database to satisfy the tests.",
-  "status": "Verified",
+  "status": "Approved",
   "category": "Backend",
   "dependencies": [
     "GR-BACKEND-10-RED"
@@ -21,5 +21,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

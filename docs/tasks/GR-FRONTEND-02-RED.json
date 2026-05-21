@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-02-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create UI Skeleton widget tests.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -29,5 +29,6 @@
     "RULE-FE-02",
     "RULE-FE-03",
     "RULE-FE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

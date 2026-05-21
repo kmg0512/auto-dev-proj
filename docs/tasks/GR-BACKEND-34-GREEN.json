@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-34-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Habit Streak Recovery endpoint in HabitsController.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -26,5 +26,6 @@
     "retry_count": 0,
     "duration_seconds": 9,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

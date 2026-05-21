@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-13-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create failing tests for Streak Recovery via Reward Ads.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -23,5 +23,6 @@
     "retry_count": 7,
     "duration_seconds": 33,
     "coverage": "N/A"
-  }
+  },
+  "approved": true
 }

@@ -1,11 +1,14 @@
 {
   "id": "GR-BACKEND-22-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild Boss Reset and Initialization logic (RED phase).",
   "agent": "Gemini-CLI",
-  "depends_on": ["GR-BACKEND-21-GREEN"],
+  "depends_on": [
+    "GR-BACKEND-21-GREEN"
+  ],
   "mechanical_dod": {
     "command": "backend/node_modules/.bin/jest --config backend/package.json backend/src/guilds/guilds.service.spec.ts",
     "expected_exit_code": 1
-  }
+  },
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-103-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Reward Ads Integration failing widget test.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -27,5 +27,6 @@
     "retry_count": 1,
     "duration_seconds": 20,
     "coverage": "0.00% (RED-PHASE)"
-  }
+  },
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-03-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild screen with Create/Join functionality.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -30,5 +30,6 @@
     "RULE-FE-03",
     "RULE-FE-TDD-01",
     "RULE-FE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

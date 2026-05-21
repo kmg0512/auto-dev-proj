@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-16-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement OpenAI API integration via AiService and integrate it into QuestsService.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -24,5 +24,6 @@
     "retry_count": 1,
     "duration_seconds": 13,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

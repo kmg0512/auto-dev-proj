@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-01-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement AdMob Spike Dummy UI and pass tests.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -22,5 +22,6 @@
     "RULE-FE-03",
     "RULE-FE-TDD-01",
     "RULE-FE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

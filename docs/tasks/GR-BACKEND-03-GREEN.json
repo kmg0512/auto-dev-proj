@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-03-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement AuthService and AuthController.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -30,5 +30,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

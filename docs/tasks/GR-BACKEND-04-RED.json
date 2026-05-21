@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-04-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create HabitsService failing unit tests for CRUD operations.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -28,5 +28,6 @@
     "RULE-BE-02",
     "RULE-BE-03",
     "RULE-BE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

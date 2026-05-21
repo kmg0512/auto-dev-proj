@@ -1,6 +1,6 @@
 {
   "id": "GR-FRONTEND-103-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Reward Ads and Streak Recovery integration.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -26,5 +26,6 @@
     "retry_count": 0,
     "duration_seconds": 20,
     "coverage": "80.69%"
-  }
+  },
+  "approved": true
 }

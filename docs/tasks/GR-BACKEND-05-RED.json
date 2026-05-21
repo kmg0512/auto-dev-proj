@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-05-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create GuildService failing unit tests for Guild creation and joining.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -29,5 +29,6 @@
     "RULE-BE-02",
     "RULE-BE-03",
     "RULE-BE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

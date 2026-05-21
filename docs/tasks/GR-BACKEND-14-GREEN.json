@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-14-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement completeHabit with EXP and Boss damage logic.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -24,5 +24,6 @@
     "retry_count": 1,
     "duration_seconds": 12,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-08-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "verification_mode": "standard",
   "metrics": {
     "tokens_used": 0,
@@ -29,5 +29,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }

@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-24-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Guild Raid Status API (GREEN phase).",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -17,5 +17,6 @@
     "retry_count": 0,
     "duration_seconds": 5,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

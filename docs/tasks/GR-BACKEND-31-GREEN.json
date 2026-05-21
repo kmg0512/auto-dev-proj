@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-31-GREEN",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement automated reward distribution on boss defeat in GuildsGateway (GREEN phase).",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -17,5 +17,6 @@
     "retry_count": 0,
     "duration_seconds": 1,
     "coverage": "80.00%"
-  }
+  },
+  "approved": true
 }

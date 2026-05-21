@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-34-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Implement Habit Streak Recovery failing tests in HabitsController.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -26,5 +26,6 @@
     "retry_count": 1,
     "duration_seconds": 3,
     "coverage": "0.00% (RED-PHASE)"
-  }
+  },
+  "approved": true
 }

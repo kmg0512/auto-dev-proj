@@ -1,6 +1,6 @@
 {
   "id": "GR-BACKEND-07-RED",
-  "status": "Verified",
+  "status": "Approved",
   "description": "Create InventoryService failing unit tests for item management.",
   "agent": "Gemini-CLI",
   "depends_on": [
@@ -29,5 +29,6 @@
     "RULE-BE-02",
     "RULE-BE-03",
     "RULE-BE-TDD-01"
-  ]
+  ],
+  "approved": true
 }

@@ -2,7 +2,7 @@
   "id": "GR-BACKEND-11-GREEN",
   "title": "GREEN: Implement WebSocket real-time Boss HP Sync",
   "description": "Implement the logic in GuildsGateway to update and broadcast Boss HP in real-time.",
-  "status": "Verified",
+  "status": "Approved",
   "category": "Backend",
   "dependencies": [
     "GR-BACKEND-11-RED"
@@ -29,5 +29,6 @@
     "RULE-BE-03",
     "RULE-BE-TDD-01",
     "RULE-BE-TDD-03"
-  ]
+  ],
+  "approved": true
 }
