@@ -15,6 +15,8 @@ This index routes AI agents and developers to localized documentation fragments.
 - **Work Breakdown Structure (WBS)**: [Phase3_Project_Management_WBS.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/planning/Phase3_Project_Management_WBS.md)
 - **Kanban Board**: [KANBAN.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/agile/KANBAN.md)
 - **Harness & Pipeline Spike**: [Phase4_Harness_Engineering.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/planning/Phase4_Harness_Engineering.md)
+- **System Inspection Report**: [project_inspection_report.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/management/project_inspection_report.md)
+- **Development Roadmap**: [roadmap.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/management/roadmap.md)
 
 ## 4. Quality & Compliance (SQA)
 - **Quality Metrics Dashboard**: [quality_metrics.md](file:///Users/macbook/Desktop/auto-dev-proj/docs/quality_metrics.md)
